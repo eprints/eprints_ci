@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE page SYSTEM "entities.dtd" >
+<xpage:page xmlns="http://www.w3.org/1999/xhtml" xmlns:xpage="http://eprints.org/ep3/xpage" xmlns:epc="http://eprints.org/ep3/control">
+<xpage:title>Selenium Configuration</xpage:title>
+<xpage:body>
+
+<div id="archive_name">EPrints Publications CI</div>
+<div id="user_admin_username">admin</div>
+<div id="user_admin_password">admin</div>
+<div id="user_admin_new_password">admin2</div>
+<div id="user_admin_email">admin@example.eprints.org</div>
+<div id="user_user_username">user</div>
+<div id="user_user_password">user</div>
+<div id="user_user_name_honourific">Mr</div>
+<div id="user_user_name_given">Us</div>
+<div id="user_user_name_family">Er</div>
+<div id="user_user_email">user@example.eprints.org</div>
+
+</xpage:body>
+
+</xpage:page>
+
