@@ -1,0 +1,6 @@
+#!/bin/bash
+SIDE_FILEPATH=$1
+SIDE_FILENAME=`basename $SIDE_FILEPATH`
+d=`dirname $0`
+DIR=`cd $d; pwd`
+cat $SIDE_FILEPATH | sed 's!"url": "[^"]\+",!"url": "EPRINTS_URL",!' | sed 's!"urls": \["[^"]\+"\],!"urls": ["EPRINTS_URL"],!' > $DIR/../sides/templates/${SIDE_FILENAME}.tmpl

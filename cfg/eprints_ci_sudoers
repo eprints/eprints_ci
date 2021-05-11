@@ -1,0 +1,14 @@
+# EPrints continuous integration
+
+# User: eprints
+Defaults:eprints !requiretty
+eprints ALL= NOPASSWD : /usr/bin/systemctl start httpd
+eprints ALL= NOPASSWD : /usr/bin/systemctl stop httpd
+
+# User:jenkins
+Defaults:jenkins !requiretty
+Cmnd_Alias CHOWN_WORKSPACE_CMD = /usr/bin/chown -R eprints\:eprints /var/lib/jenkins/workspace/*
+Cmnd_Alias CHOWN_RESULTS_CMD = /usr/bin/chown -R jenkins\:jenkins /var/lib/jenkins/workspace/*
+jenkins ALL=(eprints) NOPASSWD: /usr/local/share/eprints_ci/bin/restore_eprints_template
+jenkins ALL =(root) NOPASSWD: CHOWN_WORKSPACE_CMD, CHOWN_RESULTS_CMD
+

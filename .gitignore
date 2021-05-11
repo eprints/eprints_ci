@@ -1,1 +1,5 @@
-sides/*
+cfg/selenium.xhtml
+cfg/side.yml
+sides/*.side
+templates/*
+

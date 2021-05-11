@@ -14,10 +14,10 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "984fe18e-2b66-4aa1-b76f-745179eb46cf",
+      "id": "9e1677d6-ef3e-4cda-9b45-a2a823000724",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Welcome to ${archive_name} - ${archive_name}",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Welcome to ')]",
       "targets": [],
       "value": ""
     }, {
@@ -301,10 +301,10 @@
       ],
       "value": ""
     }, {
-      "id": "b175c3b6-829d-48f3-aecb-dace503f5014",
+      "id": "55a17c47-2c9c-4bef-b529-849dbe4fe270",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Welcome to ${archive_name} - ${archive_name}",
+      "command": "verifyElementPresent",
+      "target": "xpath=//title[contains(.,'Welcome to ')]",
       "targets": [],
       "value": ""
     }]
@@ -312,6 +312,20 @@
     "id": "c6574580-709c-430c-ab1c-fee106fbacc0",
     "name": "002_test_about_page",
     "commands": [{
+      "id": "a298b5a0-6f26-4b28-93bc-900e3baa29fc",
+      "comment": "",
+      "command": "open",
+      "target": "/selenium.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "047977cd-3662-48c6-b3d2-9b97406c2031",
+      "comment": "",
+      "command": "storeText",
+      "target": "id=user_admin_email",
+      "targets": [],
+      "value": "user_admin_email"
+    }, {
       "id": "44aa971c-470f-4027-9c71-c5b11b45f1ea",
       "comment": "",
       "command": "open",
@@ -334,10 +348,10 @@
       ],
       "value": ""
     }, {
-      "id": "5ebf7201-4c8c-4499-b0b8-70113e045e09",
+      "id": "a6e1962e-4c0f-45da-8fc4-11f07c8d6dfa",
       "comment": "",
-      "command": "assertTitle",
-      "target": "About the Repository - ${archive_name}",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'About the Repository - ')]",
       "targets": [],
       "value": ""
     }, {
@@ -391,10 +405,10 @@
       ],
       "value": ""
     }, {
-      "id": "bddcf05d-0b46-44ae-b467-3101964eee2b",
+      "id": "70042dd9-dfa2-457b-89ad-71c0db19e07c",
       "comment": "",
-      "command": "verifyTitle",
-      "target": "Browse Items - ${archive_name}",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Browse Items - ')]",
       "targets": [],
       "value": ""
     }, {
@@ -482,7 +496,7 @@
       ],
       "value": ""
     }, {
-      "id": "93dbaebc-5379-4352-8e0c-39eeebd2da07",
+      "id": "27cafcd2-8408-4493-8b5c-c53e5d8275b1",
       "comment": "",
       "command": "click",
       "target": "xpath=//a[contains(text(),'Browse by \n                      Year')]",
@@ -495,10 +509,10 @@
       ],
       "value": ""
     }, {
-      "id": "011a0f57-746a-4c90-a8ed-448aadd565f4",
+      "id": "447f49b5-a6d1-4ad2-a1b6-07d2e90b00dd",
       "comment": "",
-      "command": "verifyTitle",
-      "target": "Browse by Year - ${archive_name}",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Browse by Year - ')]",
       "targets": [],
       "value": ""
     }, {
@@ -654,10 +668,10 @@
       ],
       "value": ""
     }, {
-      "id": "8ffa1239-9a6f-46bf-9e64-0dd86cd1dbf0",
+      "id": "c23c8dc8-f44b-42e0-b422-e72e7c811824",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Items where Year is 2005 - ${archive_name}",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Items where Year is 2005 - ')]",
       "targets": [],
       "value": ""
     }, {
@@ -819,10 +833,10 @@
       ],
       "value": ""
     }, {
-      "id": "ea643c8e-90fd-4047-9ef8-245e9063ae4c",
+      "id": "4ce3fdb5-b03a-4859-bd6b-8a64a48710d1",
       "comment": "",
-      "command": "assertTitle",
-      "target": "About EPrints - ${archive_name}",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'About EPrints - ')]",
       "targets": [],
       "value": ""
     }, {
@@ -964,10 +978,10 @@
       ],
       "value": ""
     }, {
-      "id": "751be020-3061-4629-a29d-96a779a9ef55",
+      "id": "d0ead211-257b-4218-a308-31ba54c3c1fe",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Browse by Subject - ${archive_name}",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Browse by Subject - ')]",
       "targets": [],
       "value": ""
     }, {
@@ -1102,10 +1116,10 @@
       ],
       "value": ""
     }, {
-      "id": "91a0dc4a-cd0e-4565-986e-110aff1a2de8",
+      "id": "06417a48-3ff8-49bb-8eae-ce3c26d189fe",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Items where Subject is \"D051 Ancient History\" - ${archive_name}",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Items where Subject is \"D051 Ancient History\" - ')]",
       "targets": [],
       "value": ""
     }, {
@@ -1270,6 +1284,20 @@
     "id": "be2ce120-8399-4a12-b26d-dd4afc9d189e",
     "name": "007_test_latest_additions_page",
     "commands": [{
+      "id": "c14be758-2da5-424a-a652-b429298e618b",
+      "comment": "",
+      "command": "open",
+      "target": "/selenium.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "13e74ce8-14c6-4a5e-8e65-c15e758d474a",
+      "comment": "",
+      "command": "storeText",
+      "target": "id=archive_name",
+      "targets": [],
+      "value": "archive_name"
+    }, {
       "id": "e23437a1-e3dd-4492-b991-fe702095797b",
       "comment": "",
       "command": "open",
@@ -1339,11 +1367,23 @@
       ],
       "value": ""
     }, {
-      "id": "c7a48cd2-8c2c-4525-8067-df55073b2672",
+      "id": "418164f3-ade0-4d0e-8245-cdadc2d19fd9",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Advanced Search - ${archive_name}",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Advanced Search - ')]",
       "targets": [],
+      "value": ""
+    }, {
+      "id": "d0466a9c-e75a-4c2a-a906-46ecd173e2cd",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "name=_action_search",
+      "targets": [
+        ["css=.ep_search_buttons:nth-child(4) .ep_form_action_button:nth-child(1)", "css:finder"],
+        ["xpath=(//input[@name='_action_search'])[3]", "xpath:attributes"],
+        ["xpath=//div[@id='main_content']/div/form/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
       "value": ""
     }, {
       "id": "ea636fcc-ad20-4f01-8fca-44494e76d3f0",
@@ -1358,18 +1398,6 @@
         ["xpath=//a[contains(@href, 'simple')]", "xpath:href"],
         ["xpath=//p/a", "xpath:position"],
         ["xpath=//a[contains(.,'simple search')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "d0466a9c-e75a-4c2a-a906-46ecd173e2cd",
-      "comment": "",
-      "command": "verifyElementPresent",
-      "target": "name=_action_search",
-      "targets": [
-        ["css=.ep_search_buttons:nth-child(4) .ep_form_action_button:nth-child(1)", "css:finder"],
-        ["xpath=(//input[@name='_action_search'])[3]", "xpath:attributes"],
-        ["xpath=//div[@id='main_content']/div/form/div/div/input", "xpath:idRelative"],
-        ["xpath=//div/input", "xpath:position"]
       ],
       "value": ""
     }, {
@@ -1723,17 +1751,6 @@
       ],
       "value": ""
     }, {
-      "id": "9887b8f1-b4fd-4114-96ee-772f949637f8",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=.ep_search_controls .ep_search_number:nth-child(3)",
-      "targets": [
-        ["css=.ep_search_controls .ep_search_number:nth-child(3)", "css:finder"],
-        ["xpath=//div[@id='main_content']/div/div[2]/div/span[3]", "xpath:idRelative"],
-        ["xpath=//span[3]", "xpath:position"]
-      ],
-      "value": "8"
-    }, {
       "id": "3c31e823-0091-4606-9a2d-d6a390695682",
       "comment": "",
       "command": "verifyElementPresent",
@@ -1925,18 +1942,6 @@
         ["xpath=//input[2]", "xpath:position"]
       ],
       "value": ""
-    }, {
-      "id": "0b9842db-48f9-4d8f-be89-4a4413137f79",
-      "comment": "",
-      "command": "verifyText",
-      "target": "xpath=//div[@id='main_content']/div/div[2]/div/span[3]",
-      "targets": [
-        ["css=.ep_search_controls .ep_search_number:nth-child(3)", "css:finder"],
-        ["xpath=//div[@id='main_content']/div/div[2]/div/span[3]", "xpath:idRelative"],
-        ["xpath=//span[3]", "xpath:position"],
-        ["xpath=//span[contains(.,'100')]", "xpath:innerText"]
-      ],
-      "value": "100"
     }, {
       "id": "3657ad7c-d4bd-45ba-83e8-7099c9fb2f7e",
       "comment": "",
@@ -2149,10 +2154,10 @@
       ],
       "value": ""
     }, {
-      "id": "60aaf77f-7c94-45f7-a812-54421ddab7d8",
+      "id": "5799a340-c3a9-4b60-b3c0-ece40c1be843",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Repository Policies - ${archive_name}",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Repository Policies - ')]",
       "targets": [],
       "value": ""
     }]
@@ -2160,6 +2165,41 @@
     "id": "1bcf32a5-3bca-48a4-8a8b-b44274bd8cdc",
     "name": "004_test_login_page",
     "commands": [{
+      "id": "3e79f043-0e68-424d-adc4-fe2925ab5f6a",
+      "comment": "",
+      "command": "open",
+      "target": "/selenium.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b66fe833-d47d-42f0-b5d3-b92f90a5c9bf",
+      "comment": "",
+      "command": "storeText",
+      "target": "id=user_admin_username",
+      "targets": [],
+      "value": "user_admin_username"
+    }, {
+      "id": "edfd365b-660d-4d40-bb48-8b80ed6e1a77",
+      "comment": "",
+      "command": "storeText",
+      "target": "id=user_admin_new_password",
+      "targets": [],
+      "value": "user_admin_new_password"
+    }, {
+      "id": "60a9c059-59c3-417e-b7a2-32f4aeb06530",
+      "comment": "",
+      "command": "storeText",
+      "target": "id=user_admin_password",
+      "targets": [],
+      "value": "user_admin_password"
+    }, {
+      "id": "6e45193b-4f6e-4497-9224-45335bdb4e04",
+      "comment": "",
+      "command": "storeText",
+      "target": "id=user_admin_email",
+      "targets": [],
+      "value": "user_admin_email"
+    }, {
       "id": "896efe85-0734-4a41-92e2-ab75be5dc445",
       "comment": "",
       "command": "open",
@@ -2182,10 +2222,10 @@
       ],
       "value": ""
     }, {
-      "id": "1bd4563a-e0c7-4365-ab62-5827a46c9248",
+      "id": "d31af0d4-888d-4232-8270-50f8583fd61b",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Login - ${archive_name}",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Login - ')]",
       "targets": [],
       "value": ""
     }, {
@@ -2338,10 +2378,10 @@
       ],
       "value": ""
     }, {
-      "id": "7bbfe8ec-5f5d-4b17-977f-eb96a3e535da",
+      "id": "84c0eba0-be0b-4382-afd2-17bc375d6181",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Manage deposits - ${archive_name}",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Manage deposits - ')]",
       "targets": [],
       "value": ""
     }, {
@@ -2360,10 +2400,10 @@
       ],
       "value": ""
     }, {
-      "id": "60754b34-b019-4eef-b354-1373bc178935",
+      "id": "cd3d04f9-8820-4f50-af83-fcac3a296ea5",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Logged out - ${archive_name}",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Logged out - ')]",
       "targets": [],
       "value": ""
     }, {
@@ -2555,10 +2595,10 @@
       ],
       "value": ""
     }, {
-      "id": "8fbfa6c0-cf88-4799-925d-c4b7f9232ead",
+      "id": "459e6ce4-c52f-4f95-ae7b-db5022419b1c",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Error - EPrints Publications CI",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Error - ')]",
       "targets": [],
       "value": ""
     }]
@@ -2566,6 +2606,55 @@
     "id": "00abedfd-ad42-4822-b099-a655d73a00c8",
     "name": "005_test_create_account_page",
     "commands": [{
+      "id": "9b516127-1d98-49b2-84da-acafdb8511d7",
+      "comment": "",
+      "command": "open",
+      "target": "/selenium.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5a65ff1f-e4df-4967-b0c9-017f94b5730a",
+      "comment": "",
+      "command": "storeText",
+      "target": "id=user_user_name_honourific",
+      "targets": [],
+      "value": "user_user_name_honourific"
+    }, {
+      "id": "64a6d3e9-12b0-4d30-8f1d-0ca5491ca3c4",
+      "comment": "",
+      "command": "storeText",
+      "target": "id=user_user_name_given",
+      "targets": [],
+      "value": "user_user_name_given"
+    }, {
+      "id": "786d8c3c-346d-44d3-b3c8-8375ef9a13ec",
+      "comment": "",
+      "command": "storeText",
+      "target": "id=user_user_name_family",
+      "targets": [],
+      "value": "user_user_name_family"
+    }, {
+      "id": "3ac1d931-009b-4cbd-b118-14f629dadbe2",
+      "comment": "",
+      "command": "storeText",
+      "target": "id=user_user_email",
+      "targets": [],
+      "value": "user_user_email"
+    }, {
+      "id": "f23c8931-463c-4681-934b-3948dee2f2b8",
+      "comment": "",
+      "command": "storeText",
+      "target": "id=user_user_username",
+      "targets": [],
+      "value": "user_user_username"
+    }, {
+      "id": "bac39f6a-f81d-4731-9e92-78b30e9c70e8",
+      "comment": "",
+      "command": "storeText",
+      "target": "id=user_user_password",
+      "targets": [],
+      "value": "user_user_password"
+    }, {
       "id": "5bbdf99d-ad52-43fb-9d48-46489f3ee77c",
       "comment": "",
       "command": "open",
@@ -2588,10 +2677,10 @@
       ],
       "value": ""
     }, {
-      "id": "f5c8f39c-9271-4e0a-8069-675b925a2f1c",
+      "id": "2a7064f2-9b3d-4cc9-861c-bbd2270ba319",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Create Account - EPrints Publications CI",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Create Account - ')]",
       "targets": [],
       "value": ""
     }, {
@@ -2695,15 +2784,15 @@
       "id": "44f19c59-8838-44e7-b563-0bc11442c286",
       "comment": "",
       "command": "verifyElementPresent",
-      "target": "linkText=user@example.org",
+      "target": "linkText=${user_user_email}",
       "targets": [
-        ["linkText=user@example.org", "linkText"],
+        ["linkText=${user_user_email}", "linkText"],
         ["css=code > a", "css:finder"],
-        ["xpath=//a[contains(text(),'user@example.org')]", "xpath:link"],
+        ["xpath=//a[contains(text(),'${user_user_email}')]", "xpath:link"],
         ["xpath=//div[@id='main_content']/div/p[2]/code/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, 'mailto:user@example.org')]", "xpath:href"],
+        ["xpath=//a[contains(@href, 'mailto:${user_user_email}')]", "xpath:href"],
         ["xpath=//code/a", "xpath:position"],
-        ["xpath=//a[contains(.,'user@example.org')]", "xpath:innerText"]
+        ["xpath=//a[contains(.,'${user_user_email}')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
@@ -2824,7 +2913,7 @@
       "command": "verifyText",
       "target": "css=p:nth-child(1)",
       "targets": [],
-      "value": "A user with the email address ${user_email} already exists."
+      "value": "A user with the email address ${user_user_email} already exists."
     }]
   }, {
     "id": "f05abe29-1d18-4dad-a4df-7ad664f7de92",
@@ -2867,10 +2956,10 @@
       ],
       "value": ""
     }, {
-      "id": "98d07e6a-791b-4407-b4de-882bd390587c",
+      "id": "f1cc794d-09cf-4f1d-a3fd-14783f4e27c0",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Browse by Division and Year - ${archive_name}",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Browse by Division and Year - ')]",
       "targets": [],
       "value": ""
     }, {
@@ -2975,10 +3064,10 @@
       ],
       "value": ""
     }, {
-      "id": "03808126-51f0-43fd-90ac-b8d22ec02626",
+      "id": "ec6d138e-7f0e-46dc-b23e-ad370a8cedab",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Browse by Year where Division is \"School of Mathematics\" - EPrints Publications CI",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Browse by Year where Division is \"School of Mathematics\" - ')]",
       "targets": [],
       "value": ""
     }, {
@@ -3009,10 +3098,10 @@
       ],
       "value": ""
     }, {
-      "id": "347f6aba-0525-4af4-8261-54d10c1231ae",
+      "id": "75c61da8-f12e-4fe9-9251-ec392f9c54c0",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Items where Division is \"School of Mathematics\" and Year is 1998 - ${archive_name}",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Items where Division is \"School of Mathematics\" and Year is 1998 - ')]",
       "targets": [],
       "value": ""
     }, {
@@ -3204,10 +3293,10 @@
       ],
       "value": ""
     }, {
-      "id": "c4083bb9-a33b-46c7-9c46-ea94898090de",
+      "id": "f4f5c3ba-1336-4eaf-b5c5-b0655a9111ba",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Accessibility - ${archive_name}",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Accessibility - ')]",
       "targets": [],
       "value": ""
     }, {
@@ -3256,10 +3345,10 @@
       ],
       "value": ""
     }, {
-      "id": "385bb78d-b7cc-43e3-b7e1-b86f3f94d1ee",
+      "id": "4d3d962b-1564-46a5-ad65-5dd91718525c",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Accessibility report for EPrints Publications CI - EPrints Publications CI",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Accessibility report for ')]",
       "targets": [],
       "value": ""
     }, {
@@ -3293,10 +3382,10 @@
       ],
       "value": ""
     }, {
-      "id": "62a2a8a9-9788-4803-ad20-860352902090",
+      "id": "dcd8e94d-7673-435e-92ce-9f3145d0a84f",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Accessibility roadmap for EPrints Publications CI - EPrints Publications CI",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Accessibility roadmap for ')]",
       "targets": [],
       "value": ""
     }]
@@ -3341,10 +3430,10 @@
       ],
       "value": ""
     }, {
-      "id": "087b2fbd-4579-4787-a5d8-05b3af29c325",
+      "id": "1c105308-ff39-4086-85ec-77591189b0ff",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Browse by Author - ${archive_name}",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Browse by Author - ')]",
       "targets": [],
       "value": ""
     }, {
@@ -3441,10 +3530,10 @@
       ],
       "value": ""
     }, {
-      "id": "7bbed11e-cc28-4fb6-8e2d-c153f86c58c7",
+      "id": "2110bcb4-d9ba-4521-bcb7-3e59a2c732c5",
       "comment": "",
-      "command": "assertTitle",
-      "target": "Items where Author is \"Beda, O.\" - ${archive_name}",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Items where Author is \"Beda, O.\" - ')]",
       "targets": [],
       "value": ""
     }, {
@@ -3602,87 +3691,6 @@
       "target": "xpath=//div[contains(.,'This list was generated on ')]",
       "targets": [],
       "value": ""
-    }]
-  }, {
-    "id": "dc28eb8d-517d-4635-acb3-a816f7a76539",
-    "name": "000_load_config",
-    "commands": [{
-      "id": "f4229d94-778a-473d-b34f-1f8c4616e97c",
-      "comment": "",
-      "command": "open",
-      "target": "/selenium.html",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "ba17b34a-2e6a-48e8-be2a-7d026e4c9124",
-      "comment": "",
-      "command": "storeText",
-      "target": "id=archive_name",
-      "targets": [],
-      "value": "archive_name"
-    }, {
-      "id": "2ea3e8bd-5b40-4706-a048-f24ed0d664c9",
-      "comment": "",
-      "command": "storeText",
-      "target": "id=user_admin_username",
-      "targets": [],
-      "value": "user_admin_username"
-    }, {
-      "id": "478454e0-924a-469b-b859-6deb64df04f7",
-      "comment": "",
-      "command": "storeText",
-      "target": "id=user_admin_password",
-      "targets": [],
-      "value": "user_admin_password"
-    }, {
-      "id": "ecf1eca9-4b42-4727-bc93-b9512371ddf5",
-      "comment": "",
-      "command": "storeText",
-      "target": "id=user_admin_email",
-      "targets": [],
-      "value": "user_admin_email"
-    }, {
-      "id": "8c536749-db8d-42a2-a395-c701fcdb7007",
-      "comment": "",
-      "command": "storeText",
-      "target": "id=user_user_username",
-      "targets": [],
-      "value": "user_user_username"
-    }, {
-      "id": "ede3c8ed-025b-4a5f-a1a6-c9b682276ee8",
-      "comment": "",
-      "command": "storeText",
-      "target": "id=user_user_password",
-      "targets": [],
-      "value": "user_user_password"
-    }, {
-      "id": "027eaef9-76be-4748-a630-0f39a91d243a",
-      "comment": "",
-      "command": "storeText",
-      "target": "id=user_user_name_honourific",
-      "targets": [],
-      "value": "user_user_name_honourific"
-    }, {
-      "id": "54dbdab0-2e22-4448-bd3e-55911df73124",
-      "comment": "",
-      "command": "storeText",
-      "target": "id=user_user_name_given",
-      "targets": [],
-      "value": "user_user_name_given"
-    }, {
-      "id": "6f879558-b79e-432a-9be1-83262d82438e",
-      "comment": "",
-      "command": "storeText",
-      "target": "id=user_user_name_family",
-      "targets": [],
-      "value": "user_user_name_family"
-    }, {
-      "id": "2c424560-db96-4eda-ba67-54e68688b677",
-      "comment": "",
-      "command": "storeText",
-      "target": "id=user_user_email",
-      "targets": [],
-      "value": "user_user_email"
     }]
   }],
   "suites": [{

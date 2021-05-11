@@ -1,0 +1,47 @@
+#!/bin/bash
+ARCHIVE=$1
+LOCATION=$2
+URL=$3
+
+if [[ "$ARCHIVE" == "" ]]; then 
+	echo "No archive specified"
+	exit 1
+fi
+if [[ "$LOCATION" == "" ]]; then
+	echo "No location specified"
+	exit 2
+fi
+if [[ "$URL" == "" ]]; then
+        echo "No URL specified"
+        exit 3
+fi
+
+d=`dirname $0`
+DIR=`cd $d; pwd`
+cd $DIR/../
+
+EPRINTS_PATH="/opt/eprints3"
+DATETIME=`date +"%Y%m%d_%H%M%S"`
+YEAR=`date +%Y`
+MONTH=`date +%m`
+DAY=`date +%d`
+
+$EPRINTS_PATH/bin/indexer stop
+sudo systemctl stop httpd
+if [[ -d /var/lib/mysql/$ARCHIVE ]]; then
+	mysql -u root -e "DROP DATABASE $ARCHIVE;"
+	mysql -u root -e "CREATE DATABASE $ARCHIVE;"
+fi
+rm -f $EPRINTS_PATH
+ln -s $LOCATION $EPRINTS_PATH
+mkdir -p $EPRINTS_PATH/archives/
+cp -rf templates/archives/$ARCHIVE/ $EPRINTS_PATH/archives/
+bin/deploy_config_and_sides $EPRINTS_PATH $URL
+mysql -u root $ARCHIVE < templates/databases/${ARCHIVE}.sql
+# So latest additions is always populated
+mysql -u root $ARCHIVE -e "UPDATE eprint SET datestamp_year='$YEAR', datestamp_month='$MONTH', datestamp_day='$DAY', datestamp_hour='0' AND datestamp_minute='0' and datestamp_second='0';"
+mkdir -p $EPRINTS_PATH/cfg/
+rm -rf $EPRINTS_PATH/cfg/*
+$EPRINTS_PATH/bin/generate_apacheconf --system --replace
+sudo systemctl start httpd
+$EPRINTS_PATH/bin/indexer start --retry
