@@ -36,12 +36,15 @@ rm -f $EPRINTS_PATH
 ln -s $LOCATION $EPRINTS_PATH
 mkdir -p $EPRINTS_PATH/archives/
 cp -rf templates/archives/$ARCHIVE/ $EPRINTS_PATH/archives/
+chmod -R g+w $EPRINTS_PATH/archives
 bin/deploy_config_and_sides $EPRINTS_PATH $URL
 mysql -u root $ARCHIVE < templates/databases/${ARCHIVE}.sql
 # So latest additions is always populated
 mysql -u root $ARCHIVE -e "UPDATE eprint SET datestamp_year='$YEAR', datestamp_month='$MONTH', datestamp_day='$DAY', datestamp_hour='0' AND datestamp_minute='0' and datestamp_second='0';"
 mkdir -p $EPRINTS_PATH/cfg/
 rm -rf $EPRINTS_PATH/cfg/*
+chmod g+w $EPRINTS_PATH/cfg
 $EPRINTS_PATH/bin/generate_apacheconf --system --replace
+$EPRINTS_PATH/bin/epadmin update $ARCHIVE
 sudo systemctl start httpd
 $EPRINTS_PATH/bin/indexer start --retry
