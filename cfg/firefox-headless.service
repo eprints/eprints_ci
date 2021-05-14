@@ -1,0 +1,18 @@
+[Unit]
+Description=FireFox Headless
+After=xvfb-55.service
+Requires=xvfb-55.service
+
+[Service]
+TimeoutStartSec=0
+User=jenkins
+Group=jenkins
+Environment="DISPLAY=:55"
+ExecStart=/usr/bin/firefox --headless
+ExecStop=/bin/kill -15 $MAINPID
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
+

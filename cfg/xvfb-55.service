@@ -1,0 +1,17 @@
+[Unit]
+Description=Xvfb Display 55
+After=
+Requires=
+
+[Service]
+TimeoutStartSec=0
+User=jenkins
+Group=jenkins
+ExecStart=/usr/bin/Xvfb :55
+ExecStop=/bin/kill -15 $MAINPID
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
+
