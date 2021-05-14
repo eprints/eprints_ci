@@ -1,5 +1,5 @@
 # EPrints Continuous Integration Environment
-EPrints Continuous Integration Environment is a framework for deploying automated testing of EPrints repositories.  It is intended to allow changes to the EPrints codebase to be comprehensively tested to ensure they cause no unexpected side effects.  The framework in built around [Selenium IDE](https://www.selenium.dev/selenium-ide/) for building and running user acceptance tests and [Jenkins](https://www.jenkins.io/) for automating building, testing and evaluating EPrints.  The instructionsthat follow have been tested on a CentOS 7 Linux operating system.
+EPrints Continuous Integration Environment is a framework for deploying automated testing of EPrints repositories.  It is intended to allow changes to the [EPrints codebase](https://github.com/eprints/eprints3.4) to be comprehensively tested to ensure they cause no unexpected side effects.  The framework in built around [Selenium IDE](https://www.selenium.dev/selenium-ide/) for building and running user acceptance tests and [Jenkins](https://www.jenkins.io/) for automating building, testing and evaluating EPrints.  The instructions that follow have been tested on a CentOS 7 Linux operating system.
 
 ## Deploying Configuration and SIDE Files 
 Run the **bin/deploy_config_and_sides** script as the eprints user on the server hosting the EPrints repository you want to test:
@@ -34,12 +34,14 @@ These instructions are based on those required for RHEL/CentOS 7.  It may be pos
 
     ```yum install -y firefox xorg-x11-server-Xvfb```
 
-7. Not as root, start an Xvfb instance and run Firefox headless in it
+7. Deploy the Systemd units ```cfg/xvfb-55.service``` and ```cfg/firefox-headless.service``` 
 
     ```
-    Xvfb :55 &
-    export DISPLAY=:55
-    firefox --headless &
+    cp cfg/*.service /etc/systemd/system/
+    systemctl enable xvfb-55
+    systemctl start xvfb-55
+    systemctl enable firefox-headless
+    systemctl start firefox-headless
     ```
 
 8. Now you can run a Selenium SIDE file to run tests against EPrints:
@@ -54,8 +56,63 @@ Run the ```bin/make_side_template``` script to write a deployed SIDE file as a t
 Replace the only parameter with the file path of the deployed SIDE file you want to write as a template.
     
 ## Integrating with Jenkins
-**To be written**
 
+### Installing EPrints 
+Before you can integrate with Jenkins you need to have an EPrints installation in place.  This needs to be installed via [GitHub](https://github.com/eprints/eprints3.4) following these [instructions](https://wiki.eprints.org/w/Installing_EPrints_on_RHEL/Fedora/CentOS#Installing_EPrints_3.4.x_from_Source).  
+
+### Create a new EPrints archive
+Now EPrints is installed and your have [created a new archive](https://wiki.eprints.org/w/Getting_Started_with_EPrints_3) (for these instructions will be know as **test_archive**), you need to deploy the test data by running the ```testdata/bin/import_test_data``` script against your archive:
+    testdata/bin/import_test_data test_archive
+
+### Installing Jenkins
+Once installed you can then [install Jenkins](https://www.jenkins.io/doc/book/installing/linux/#red-hat-centos).  Before creating your EPrints project and build pipeline you need to make a few system level configuration changes:
+
+1. Clone or move this Git repository to: ```/usr/local/share/eprints_ci``` and make sure all files are owned by eprints with group write permssions:
+    chown -R eprints:eprints /usr/local/share/eprints_ci
+    chmod -R g+w /usr/local/share/eprints_ci
+2. Ensure EPrints parent directory (i.e. ```/opt```) is owned and belongs to the eprints group:
+    chown epring:eprints /opt 
+3. Copy ```cfg/eprints_ci_sudoers``` to ```/etc/sudoers.d/eprints_ci```
+    cp /usr/local/share/eprints_ci/cfg/eprints_ci_sudoers /etc/sudoers.d/eprints_ci
+4. Add the ```eprints``` user to the ```jenkins``` group and vice-versa
+    usermod -a -G jenkins eprints
+    usermod -a -G eprints jenkins
+
+### Building an EPrints archive template
+Now you need to build the template for you generated archive.  There are several steps to this:
+
+1. Ensure that there are no tasks in the EPrints event queue.  If there are this may lead to tests producing on reliable results.  If there are test outstanding.  Make sure these have all run successfully and retry any failed tasks.
+2. Stop the EPrints indexer (as the eprints user) and webserver
+    bin/indexer stop
+    systemctl stop httpd
+3. Take a backup of the database to the ```templates/databases/``` directory:
+    mysqldump -u root test\_archive > /usr/local/share/eprints_ci/templates/databases/test\_archive.sql
+4. Move the archive to the ```templates/archives/``` directory:
+    mv archives/test\_archive  /usr/local/share/eprints_ci/templates/archives/
+5. Delete or move the EPrints directory (i.e. ```/opt/eprints3/```) out of the way.  (Jenkins will clone this from [GitHub](https://github.com/eprints/eprints3.4), each time a build is run).
+
+### Creating and configuring an EPrints project in Jenkins
+Now you have an EPrints archive templates you have all the elements you need to create an EPrints project in Jenkins and configure a build pipeline.
+1.  Click on **New Item** and add a new **Freestyle project** called *eprints* and click on **OK**.
+2.  On the page that loads add a basic **Description**.
+3.  Check the **Discard old builds** checkbox set the **Strategy** as *Log Rotation* and set the **Max # of builds** to *10*.
+4. Under the **Source Code Management** section select *Git* and set the **Repository URL** to *https://github.com/eprints/eprints* under **Branches to build** set the **Branch Specifier** to *\*/master*.  You may want to change thiese later if you want to test your own fork/branch of EPrints.
+5. Under the **Build Triggers** you can choose what is most suitable for you.  The easiest to configure is **Build periodically**.  The following will run a build once a day at 8am:
+    0 8 * * * *
+6. Under the **Build Environment** section check the **Delete workspace before build starts**, **Abort the build if it's stuck** and **Add timestamps to Console Output** checkboxes.  For the second of these set the **Time-out strategy** to *Absolute* and the **Timeout minutes** to *30*.
+7. Under the **Build** section add an **Execute shell** stage.  This stage is for restoring the EPrints archive template and requires the following commands.  Ensuring you set the parameters for the ```restore_eprints_template``` script are set appropriately. (${WORKSPACE} should not be changed and this is a Jenkins environment variable):
+    chmod -R g+w ${WORKSPACE}
+    sudo /usr/bin/chown -R eprints:eprints ${WORKSPACE}/*
+    mkdir ${WORKSPACE}/results
+    sudo -u eprints /usr/local/share/eprints_ci/bin/restore_eprints_template test_archive ${WORKSPACE} http://example.eprints.org
+8. Add a second **Esecute shell** stage under the **Build** section.  This is stage is for running tests under the ```selenium-side-runner```.  Using a headless version of Firefox.
+    export DISPLAY=:55
+    cd ${WORKSPACE}
+    selenium-side-runner --config-file=/usr/local/share/eprints_ci/cfg/side.yml --output-directory=results --output-format=junit /usr/local/share/eprints_ci/sides/eprints.side  
+9. Under the **Post-build Action** add a **Publish JUnit test result report** stage and set the **Test report XMLs** to ```results/*.xml```.
+10. You may also want to set up some notifications.  Email is the easiest to set up by you could try [Slack notifications](https://medium.com/appgambit/integrating-jenkins-with-slack-notifications-4f14d1ce9c7a).
+11. Finally click on **Save** and you will be taken back to the project's homepage and you can **Build Now**.
+    
 ## Files
 
 ### bin (scripts)
@@ -81,13 +138,16 @@ Replace the only parameter with the file path of the deployed SIDE file you want
 * ```eprints_ci_sudoers```
   * Contains sudoers configuration to allow scripts to run automatically.
   * Needs to be copied to ```/etc/sudoers.d/``` before running  ```deploy_config_and_sides``` or ```restore_eprints_template```
+* ```firefox-headless.service```
+  * Systemd unit for running Firefox in headless mode 
 * ```selenium.xhtml.tmpl```
   * Contains configurable options for Selenium tests.  
   * Needs to be copied to ```selenium.xhtml``` and any modifications made to that file before running ```deploy_config_and_sides```
 * ```side.yml.tmpl```
   * Contains configuration settings for running SIDE files with ```selenium-side-runner```.
   * Should be copied to ```side.yml``` before making any modifications.
-
+* ```xvfb-55.service```
+  * Systemd unit for running ```Xvfb``` on ```DISPLAY=:55``` 
 
 ### sides/
 This directory will initially contain no files as the ```bin/deploy_config_and_sides``` needs to be run to convert the template SIDE files in the ```templates/``` sub-directory into this directory.
