@@ -26,7 +26,7 @@ YEAR=`date +%Y`
 MONTH=`date +%m`
 DAY=`date +%d`
 
-$EPRINTS_PATH/bin/indexer stop
+killall -9 indexer
 sudo systemctl stop httpd
 if [[ -d /var/lib/mysql/$ARCHIVE ]]; then
 	mysql -u root -e "DROP DATABASE $ARCHIVE;"

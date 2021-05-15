@@ -100,22 +100,23 @@ Now you have an EPrints archive templates you have all the elements you need to 
 5. Under the **Build Triggers** you can choose what is most suitable for you.  The easiest to configure is **Build periodically**.  The following will run a build once a day at 8am:
     0 8 * * * *
 6. Under the **Build Environment** section check the **Delete workspace before build starts**, **Abort the build if it's stuck** and **Add timestamps to Console Output** checkboxes.  For the second of these set the **Time-out strategy** to *Absolute* and the **Timeout minutes** to *30*.
-7. Under the **Build** section add an **Execute shell** stage.  This stage is for restoring the EPrints archive template and requires the following commands.  Ensuring you set the parameters for the ```restore_eprints_template``` script are set appropriately. (${WORKSPACE} should not be changed and this is a Jenkins environment variable):
+7. Under the **Build** section add an **Execute shell** stage.  This stage is for restoring the EPrints archive template and requires the following commands.  (If you wany yo test a zero Ensure you set the correct sed replacement for ARCHIVE\_NAME and parameters for the ```restore_eprints_template``` script are set appropriately. (${WORKSPACE} should not be changed and this is a Jenkins environment variable):
     chmod -R g+w ${WORKSPACE}
     sudo /usr/bin/chown -R eprints:eprints ${WORKSPACE}/*
     mkdir ${WORKSPACE}/results
+    cat /usr/local/share/eprints_ci/cfg/selenium.xhtml.tmpl | sed "s/ARCHIVE_NAME/EPrints/" > /usr/local/share/eprints_ci/cfg/selenium.xhtml
     sudo -u eprints /usr/local/share/eprints_ci/bin/restore_eprints_template test_archive ${WORKSPACE} http://example.eprints.org
-8. Add a second **Esecute shell** stage under the **Build** section.  This is stage is for running tests under the ```selenium-side-runner```.  Using a headless version of Firefox.
+8. Add a second **Execute shell** stage under the **Build** section.  This is stage is for running tests for an EPrints publications archive under the ```selenium-side-runner```, using a headless version of Firefox.  If you want to run tests against a zero archive then switch *eprints34_pub.side* for *eprints34_zero.side*.
     export DISPLAY=:55
     cd ${WORKSPACE}
-    selenium-side-runner --config-file=/usr/local/share/eprints_ci/cfg/side.yml --output-directory=results --output-format=junit /usr/local/share/eprints_ci/sides/eprints.side  
+    selenium-side-runner --config-file=/usr/local/share/eprints_ci/cfg/side.yml --output-directory=results --output-format=junit /usr/local/share/eprints_ci/sides/eprints34_pub.side  
 9. Under the **Post-build Action** add a **Publish JUnit test result report** stage and set the **Test report XMLs** to ```results/*.xml```.
 10. You may also want to set up some notifications.  Email is the easiest to set up by you could try [Slack notifications](https://medium.com/appgambit/integrating-jenkins-with-slack-notifications-4f14d1ce9c7a).
 11. Finally click on **Save** and you will be taken back to the project's homepage and you can **Build Now**.
     
 ## Files
 
-### bin (scripts)
+### bin/ (scripts)
 
 * ```deploy_config_and_sides <EPRINTS_PATH> <EPRINTS_URL>```
   * Generates runnable Selenium SIDE files from templates and deploys Selenium configuration web page to EPrints repository to load configuration variables into Selenium tests.
@@ -133,7 +134,7 @@ Now you have an EPrints archive templates you have all the elements you need to 
   * **URL** - The URL from where the EPrints repository can be accessed in a web browser.
 
 
-### cfg (configuration)
+### cfg/ (configuration)
 
 * ```eprints_ci_sudoers```
   * Contains sudoers configuration to allow scripts to run automatically.
