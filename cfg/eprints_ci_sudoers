@@ -7,8 +7,10 @@ eprints ALL= NOPASSWD : /usr/bin/systemctl stop httpd
 
 # User:jenkins
 Defaults:jenkins !requiretty
+Cmnd_Alias RESTORE_EPRINTS_TEMPLATE_CMD = /usr/local/share/eprints_ci/bin/restore_eprints_template
+Cmnd_Alias JUNIT_TESTS_CMD = /opt/eprints3/bin/junit_tests
 Cmnd_Alias CHOWN_WORKSPACE_CMD = /usr/bin/chown -R eprints\:eprints /var/lib/jenkins/workspace/*
 Cmnd_Alias CHOWN_RESULTS_CMD = /usr/bin/chown -R jenkins\:jenkins /var/lib/jenkins/workspace/*
-jenkins ALL=(eprints) NOPASSWD: /usr/local/share/eprints_ci/bin/restore_eprints_template
+jenkins ALL=(eprints) NOPASSWD: RESTORE_EPRINTS_TEMPLATE_CMD, JUNIT_TESTS_CMD
 jenkins ALL =(root) NOPASSWD: CHOWN_WORKSPACE_CMD, CHOWN_RESULTS_CMD
 
