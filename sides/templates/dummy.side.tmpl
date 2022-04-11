@@ -1,0 +1,35 @@
+{
+  "id": "9c19b78c-392a-4384-8395-66c4e6249247",
+  "version": "2.0",
+  "name": "eprints34_zero",
+  "url": "EPRINTS_URL",
+  "tests": [{
+    "id": "abf804c2-b400-4942-befa-fe065e98fce5",
+    "name": "001_test_homepage",
+    "commands": [{
+      "id": "bd26a74d-ed9e-42e7-b185-f30fec35dd2e",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9e1677d6-ef3e-4cda-9b45-a2a823000724",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Welcome to ')]",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "863b4fde-fdaf-4d7e-a03d-bebadc92e13b",
+    "name": "public",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["abf804c2-b400-4942-befa-fe065e98fce5"]
+  }],
+  "urls": ["EPRINTS_URL"],
+  "plugins": []
+}
