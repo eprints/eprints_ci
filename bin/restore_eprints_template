@@ -34,6 +34,7 @@ if [[ -d /var/lib/mysql/$ARCHIVE ]]; then
 fi
 rm -f $EPRINTS_PATH
 ln -s $LOCATION $EPRINTS_PATH
+rm -rf $EPRINTS_PATH/archives
 mkdir -p $EPRINTS_PATH/archives/
 cp -rf templates/archives/$ARCHIVE/ $EPRINTS_PATH/archives/
 chmod -R g+w $EPRINTS_PATH/archives
@@ -47,4 +48,10 @@ chmod g+w $EPRINTS_PATH/cfg
 $EPRINTS_PATH/bin/generate_apacheconf --system --replace
 $EPRINTS_PATH/bin/epadmin update $ARCHIVE
 sudo systemctl start httpd
+rm -f $EPRINTS_PATH/var/indexer.pid $EPRINTS_PATH/var/indexer.tick
+rm -f $EPRINTS_PATH/archives/$ARCHIVE/html/en/var
+cd $EPRINTS_PATH/archives/$ARCHIVE/html/en/
+ln -s $EPRINTS_PATH/var/
+touch abstracts.timestamp
+touch views.timestamp
 $EPRINTS_PATH/bin/indexer start --retry
