@@ -51,7 +51,7 @@ sudo systemctl start httpd
 rm -f $EPRINTS_PATH/var/indexer.pid $EPRINTS_PATH/var/indexer.tick
 rm -f $EPRINTS_PATH/archives/$ARCHIVE/html/en/var
 cd $EPRINTS_PATH/archives/$ARCHIVE/html/en/
-ln -s $EPRINTS_PATH/var/
-touch abstracts.timestamp
-touch views.timestamp
+ln -s $EPRINTS_PATH/archives/$ARCHIVE/var/
+echo -n "undefined" > $EPRINTS_PATH/archives/$ARCHIVE/var/abstracts.timestamp
+echo -n "undefined" > $EPRINTS_PATH/archives/$ARCHIVE/var/views.timestamp
 $EPRINTS_PATH/bin/indexer start --retry
