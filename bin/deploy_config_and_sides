@@ -6,7 +6,7 @@ DIR=`cd $d; pwd`
 cd $DIR/../
 for template in `ls sides/templates/`; do
 	side=`echo $template | sed 's/\.tmpl$//'`
-	cat sides/templates/$template | sed "s!EPRINTS_URL!$EPRINTS_URL!g" > sides/$side
+	cat sides/templates/$template | sed "s!EPRINTS_URL!$EPRINTS_URL!g" | sed 's/\\\\n/\\n/g' > sides/$side
 done
 if [ -d $EPRINTS_PATH/lib/static/ ]; then
 	cp cfg/selenium.xhtml $EPRINTS_PATH/lib/static/
