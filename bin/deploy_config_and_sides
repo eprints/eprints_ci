@@ -11,6 +11,12 @@ done
 if [ -d $EPRINTS_PATH/lib/static/ ]; then
 	cp cfg/selenium.xhtml $EPRINTS_PATH/lib/static/
 else
-	echo "WARNING: You will need to copy $DIR/selenium.xhtml to $EPRINTS_PATH/lib/static/ on your EPrints repository server!"
+	echo "WARNING: You will need to copy `pwd`/cfg/selenium.xhtml to $EPRINTS_PATH/lib/static/ on your EPrints repository server!"
 fi
+if [ -d $EPRINTS_PATH/cgi/ ]; then
+        cp cfg/get_user_pin $EPRINTS_PATH/cgi
+else
+        echo "WARNING: You will need to copy `pwd`/cfg/get_user_pin to $EPRINTS_PATH/cgi/ on your EPrints repository server!"
+fi
+
 
