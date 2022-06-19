@@ -3,16 +3,17 @@ use EPrints;
 use strict;
 
 my $session = EPrints::Session->new();
-my $content = "text/plain";
+my $content = "text/html";
 $session->send_http_header( content_type=>$content );
 my $username = $session->param( "username" );
 
 my $database = $session->get_database;
 my $dataset = $session->dataset( "user" );
 my $username_field = $dataset->get_field( "username" );
+my $userid_field = $dataset->get_field( "userid" );
 my $pin_field = $dataset->get_field( "pin" );
 
-my @fields = ($pin_field->get_sql_names);
+my @fields = ($userid_field->get_sql_names, $pin_field->get_sql_names);
 
 my $Q_table = $database->quote_identifier($dataset->get_sql_table_name);
 my $Q_username = $database->quote_identifier( "username" );
@@ -26,6 +27,23 @@ my $sql = "SELECT " . join(",", map { $database->quote_identifier($_) } @fields)
 my $sth = $session->get_database->prepare_select( $sql, 'limit' => 1 );
 $session->get_database->execute( $sth , $sql );
 my @row = $sth->fetchrow_array;
-print $row[0];
+
+print <<END;
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Get User Pin</title>
+</head>
+<body>
+<h1>Get User Pin</h1>
+END
+
+print '<div id="userid">' . $row[0] . '</div>' . "\n";
+print '<div id="pin">' . $row[1] . '</div>' . "\n";
+
+print <<END;
+</body>
+</html>
+END
 
 $session->terminate;
