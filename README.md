@@ -141,9 +141,13 @@ Now you have an EPrints archive templates you have all the elements you need to 
   * Needs to be copied to ```/etc/sudoers.d/``` before running  ```deploy_config_and_sides``` or ```restore_eprints_template```
 * ```firefox-headless.service```
   * Systemd unit for running Firefox in headless mode 
+* ```get_user_pin```
+  * CGI script for getting pin that would be sent in user account activation email.
 * ```selenium.xhtml.tmpl```
   * Contains configurable options for Selenium tests.  
   * Needs to be copied to ```selenium.xhtml``` and any modifications made to that file before running ```deploy_config_and_sides```
+* ```test.pdf```
+  * A PDF to upload from a URL for testing purposes.  
 * ```side.yml.tmpl```
   * Contains configuration settings for running SIDE files with ```selenium-side-runner```.
   * Should be copied to ```side.yml``` before making any modifications.
@@ -154,7 +158,9 @@ Now you have an EPrints archive templates you have all the elements you need to 
 This directory will initially contain no files as the ```bin/deploy_config_and_sides``` needs to be run to convert the template SIDE files in the ```templates/``` sub-directory into this directory.
 
 #### sides/template/
-* ```eprints.side``` - All EPrints tests.  Currently just for public-facing pages.  Likely to be broken up into several SIDE fiels as more tests are added.
+* ```dummy.side.tmpl``` - Single dummy test for an EPrints repository.  Useful for checking that CI environment can handle Selenium test results.
+* ```eprints34_pub.side.tmpl``` - All tests for a publication flavour EPrints repository.
+* ```eprints34_zero.side.tmpl``` - All tests for a no flavour (zero) EPrints repository.
 
 
 ### templates/
