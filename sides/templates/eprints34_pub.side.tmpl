@@ -14683,10 +14683,17 @@
       "targets": [],
       "value": "3000"
     }, {
+      "id": "08652a04-6926-4414-be47-74f9f9768e7e",
+      "comment": "",
+      "command": "store",
+      "target": "[name^='c3_doc']",
+      "targets": [],
+      "value": "selector"
+    }, {
       "id": "aefd714d-496f-44c6-8935-b82b6d8baf4c",
       "comment": "",
       "command": "executeScript",
-      "target": "var elem = document.querySelector('[name^=\"c3_doc\"]'); return elem.getAttribute(\"name\");",
+      "target": "var elem = document.querySelector(${selector}); return elem.getAttribute('name');",
       "targets": [],
       "value": "docid"
     }, {
@@ -18335,6 +18342,20 @@
       "targets": [],
       "value": "label=${eprint_1_related_url_1_type}"
     }, {
+      "id": "97979adb-ba82-4add-b082-367917850208",
+      "comment": "",
+      "command": "click",
+      "target": "id=c25_event_type_${eprint_1_event_type_value}",
+      "targets": [
+        ["id=c25_event_type_conference", "id"],
+        ["name=c25_event_type", "name"],
+        ["css=#c25_event_type_conference", "css:finder"],
+        ["xpath=//input[@id='c25_event_type_conference']", "xpath:attributes"],
+        ["xpath=//dt[@id='c25_event_type_conference_title']/input", "xpath:idRelative"],
+        ["xpath=//div[13]/div/div[2]/div/div/div/div[2]/div[2]/dl/dt/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
       "id": "100120e9-c617-46ee-867b-b9e60fc5324b",
       "comment": "",
       "command": "click",
@@ -18418,20 +18439,6 @@
         ["xpath=//div[4]/div[2]/div[2]/div/div/input", "xpath:position"]
       ],
       "value": "${eprint_1_event_dates}"
-    }, {
-      "id": "97979adb-ba82-4add-b082-367917850208",
-      "comment": "",
-      "command": "click",
-      "target": "id=c25_event_type_${eprint_1_event_type_value}",
-      "targets": [
-        ["id=c25_event_type_conference", "id"],
-        ["name=c25_event_type", "name"],
-        ["css=#c25_event_type_conference", "css:finder"],
-        ["xpath=//input[@id='c25_event_type_conference']", "xpath:attributes"],
-        ["xpath=//dt[@id='c25_event_type_conference_title']/input", "xpath:idRelative"],
-        ["xpath=//div[13]/div/div[2]/div/div/div/div[2]/div[2]/dl/dt/input", "xpath:position"]
-      ],
-      "value": ""
     }, {
       "id": "025ff26f-7722-49e8-98e5-b1f9020b250a",
       "comment": "",
