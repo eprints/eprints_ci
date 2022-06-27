@@ -14683,17 +14683,24 @@
       "targets": [],
       "value": "3000"
     }, {
-      "id": "08652a04-6926-4414-be47-74f9f9768e7e",
+      "id": "1ddc36d5-fe97-41cb-9f82-bfae24e9d2ed",
       "comment": "",
       "command": "store",
-      "target": "[name^='c3_doc']",
+      "target": "name",
       "targets": [],
-      "value": "selector"
+      "value": "sel_attr"
+    }, {
+      "id": "42477203-8596-4172-9de3-b1e9b7426e28",
+      "comment": "",
+      "command": "store",
+      "target": "c3_doc",
+      "targets": [],
+      "value": "sel_match"
     }, {
       "id": "aefd714d-496f-44c6-8935-b82b6d8baf4c",
       "comment": "",
       "command": "executeScript",
-      "target": "var elem = document.querySelector(${selector}); return elem.getAttribute('name');",
+      "target": "var selector = '[' + ${sel_attr} + '^=\\'' +  ${sel_match} + '\\']'; var elem = document.querySelector(selector); return elem.getAttribute('name');",
       "targets": [],
       "value": "docid"
     }, {
