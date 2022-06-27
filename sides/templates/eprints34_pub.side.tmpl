@@ -457,11 +457,11 @@
       "id": "48ddabf4-1d53-4d04-a05c-aaff67e88718",
       "comment": "",
       "command": "verifyElementPresent",
-      "target": "linkText=Author",
+      "target": "linkText=${eprint_1_related_url_1_type}",
       "targets": [
-        ["linkText=Author", "linkText"],
+        ["linkText=Organisation", "linkText"],
         ["css=ul:nth-child(1) > li:nth-child(4) > a", "css:finder"],
-        ["xpath=(//a[contains(text(),'Author')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(text(),'Organisation')])[2]", "xpath:link"],
         ["xpath=//div[@id='main_content']/div/div[2]/ul/li[4]/a", "xpath:idRelative"],
         ["xpath=(//a[contains(@href, 'creators/')])[2]", "xpath:href"],
         ["xpath=//div[2]/ul/li[4]/a", "xpath:position"]
@@ -18787,11 +18787,11 @@
       "command": "verifyText",
       "target": "xpath=//a[@href='${eprint_1_related_url_1_url}']",
       "targets": [
-        ["linkText=Author", "linkText"],
+        ["linkText=Organisation", "linkText"],
         ["css=.ep_row > ul:nth-child(1) a", "css:finder"],
-        ["xpath=(//a[contains(text(),'Author')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(text(),'Organisation')])[2]", "xpath:link"],
         ["xpath=//div[@id='ep_eprint_view_panel_1']/table/tbody/tr[24]/td/ul/li/a", "xpath:idRelative"],
-        ["xpath=//a[@href='http://example.eprints.org/author']", "xpath:href"],
+        ["xpath=//a[@href='http://example.eprints.org/organisation']", "xpath:href"],
         ["xpath=//tr[24]/td/ul/li/a", "xpath:position"]
       ],
       "value": "${eprint_1_related_url_1_type}"
