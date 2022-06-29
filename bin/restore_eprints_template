@@ -2,6 +2,7 @@
 ARCHIVE=$1
 LOCATION=$2
 URL=$3
+PROJECT=$4
 
 if [[ "$ARCHIVE" == "" ]]; then 
 	echo "No archive specified"
@@ -38,7 +39,7 @@ rm -rf $EPRINTS_PATH/archives
 mkdir -p $EPRINTS_PATH/archives/
 cp -rf templates/archives/$ARCHIVE/ $EPRINTS_PATH/archives/
 chmod -R g+w $EPRINTS_PATH/archives
-bin/deploy_config_and_sides $EPRINTS_PATH $URL
+bin/deploy_config_and_sides $EPRINTS_PATH $URL $PROJECT
 mysql -u root $ARCHIVE < templates/databases/${ARCHIVE}.sql
 # So latest additions is always populated
 mysql -u root $ARCHIVE -e "UPDATE eprint SET datestamp_year='$YEAR', datestamp_month='$MONTH', datestamp_day='$DAY', datestamp_hour='0' AND datestamp_minute='0' and datestamp_second='0';"

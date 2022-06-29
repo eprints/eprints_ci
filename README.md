@@ -105,7 +105,7 @@ Now you have an EPrints archive templates you have all the elements you need to 
     sudo /usr/bin/chown -R eprints:eprints ${WORKSPACE}/*
     mkdir ${WORKSPACE}/results
     cat /usr/local/share/eprints_ci/cfg/selenium.xhtml.tmpl | sed "s/ARCHIVE_NAME/EPrints/" > /usr/local/share/eprints_ci/cfg/selenium.xhtml
-    sudo -u eprints /usr/local/share/eprints_ci/bin/restore_eprints_template test_archive ${WORKSPACE} http://example.eprints.org
+    sudo -u eprints /usr/local/share/eprints_ci/bin/restore_eprints_template test_archive ${WORKSPACE} http://example.eprints.org eprints34_pub
 8. Add a second **Execute shell** stage under the **Build** section.  This is stage is for running tests for an EPrints publications archive under the ```selenium-side-runner```, using a headless version of Firefox.  If you want to run tests against a zero archive then switch *eprints34_pub.side* for *eprints34_zero.side*.
     export DISPLAY=:55
     cd ${WORKSPACE}
@@ -122,16 +122,18 @@ Now you have an EPrints archive templates you have all the elements you need to 
   * Generates runnable Selenium SIDE files from templates and deploys Selenium configuration web page to EPrints repository to load configuration variables into Selenium tests.
   * **EPRINTS\_PATH** - The filesystem path of the EPrints repository to deploy Selenium configuration web page.
   * **EPRINTS\_URL** - The base URL of the EPrints repository.
+  * **SELENIUM_PROJECT** - The Selenium project (i.e. SIDE file without the .side) you want to deploy.
 
 * ```make_side_template <SIDE_FILEPATH>```
   * Takes configured (i.e. base URL set) Selenium SIDE file and converts it into a template of itself.
   * **SIDE\_FILEPATH** - The location of the Selenium SIDE file to be used to update its template equivalent.
 
-* ```restore_eprints_template <ARCHIVE> <LOCATION> <URL>```
+* ```restore_eprints_template <ARCHIVE> <LOCATION> <URL> <PROJECT>```
   * Restores a backup template of archive files (code, configuration and documents) and database on the EPrints path.  It is assumed that EPrints was originally installed in /opt/eprints3.
   * **ARCHIVE** - The ID of the archive to be restored from ```templates/``` directory.
   * **LOCATION** - Where EPrints is installed by Jenkins during a build (typically /var/lib/jenkins/workspace/<PROJECT_NAME>).
   * **URL** - The URL from where the EPrints repository can be accessed in a web browser.
+  * **PROJECT** - The Selenium project (i.e. SIDE file without the .side) you want to deploy.
 
 
 ### cfg/ (configuration)
@@ -161,6 +163,7 @@ This directory will initially contain no files as the ```bin/deploy_config_and_s
 * ```dummy.side.tmpl``` - Single dummy test for an EPrints repository.  Useful for checking that CI environment can handle Selenium test results.
 * ```eprints34_pub.side.tmpl``` - All tests for a publication flavour EPrints repository.
 * ```eprints34_zero.side.tmpl``` - All tests for a no flavour (zero) EPrints repository.
+* ```test.yml``` Like the dummy test but intended as a scratchpad for debugging issues, (e.g. different behaviours between Selenium IDE on FireFox and the Selenium Side Runner.
 
 
 ### templates/
