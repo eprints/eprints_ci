@@ -8106,6 +8106,13 @@
       ],
       "value": "Indexer stopped successfully."
     }, {
+      "id": "21131666-537b-45e4-a704-96dd041ee70e",
+      "comment": "",
+      "command": "pause",
+      "target": "20000",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "54b102a6-8114-42f5-885a-f70e8adc31e2",
       "comment": "",
       "command": "click",
@@ -21739,6 +21746,7 @@
       "targets": [],
       "value": ""
     }, {
+    }, {
       "id": "15a5fe44-9418-4297-89a8-ff7bffd6c9e5",
       "comment": "",
       "command": "verifyElementPresent",
@@ -21978,7 +21986,7 @@
       ],
       "value": "Conference or Workshop Item"
     }, {
-      "id": "7440ae68-b4c1-4c6b-aa20-fc21d1e8a9ce",
+          "id": "7440ae68-b4c1-4c6b-aa20-fc21d1e8a9ce",
       "comment": "",
       "command": "click",
       "target": "css=.ep_columns_title_inner_sort img",
@@ -22014,70 +22022,86 @@
       ],
       "value": "Article"
     }, {
-      "id": "771f8192-c84a-4b3f-9cf3-9f66632d5a05",
+      "id": "7bcb9df0-8956-4a75-9e11-12714c5501d5",
       "comment": "",
       "command": "click",
-      "target": "linkText=Title",
+      "target": "linkText=Item Type",
       "targets": [
-        ["linkText=Title", "linkText"],
-        ["css=.ep_columns_title:nth-child(2) a", "css:finder"],
-        ["xpath=//a[contains(text(),'Title')]", "xpath:link"],
-        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr/th[2]/div/div/div/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/cgi/users/home?screen=Items&_buffer_offset=0&_buffer_order=title&link=name')]", "xpath:href"],
-        ["xpath=//th[2]/div/div/div/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Title')]", "xpath:innerText"]
+        ["linkText=Item Type", "linkText"],
+        ["css=.ep_columns_title:nth-child(3) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Item Type')]", "xpath:link"],
+        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr/th[3]/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/cgi/users/home?screen=Items&_buffer_offset=0&_buffer_order=type&link=name')]", "xpath:href"],
+        ["xpath=//th[3]/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Item Type')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
-      "id": "72c2f855-b52e-45bc-a721-0fe8c3569e6b",
+      "id": "ebc054a9-a824-48a4-8245-068e134b867f",
+      "comment": "",
+      "command": "storeText",
+      "target": "css=.row_b:nth-child(2) > .ep_columns_cell_type",
+      "targets": [],
+      "value": "top_type"
+    }, {
+      "id": "a8f29625-9594-4014-9531-c6033ce5720f",
+      "comment": "",
+      "command": "if",
+      "target": "${top_type} == 'Conference or Workshop Item'",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f65e54d2-486f-4717-bd27-9a8763f7e970",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//img[@alt='Down']",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9a3587a9-50e0-4016-a46e-f6550a95beb1",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7d52ff1b-93ff-4cba-8124-c56e090977c4",
       "comment": "",
       "command": "verifyText",
-      "target": "css=.row_b:nth-child(2) > .ep_columns_cell_title",
+      "target": "css=.row_b:nth-child(2) > .ep_columns_cell_type",
       "targets": [
-        ["css=.row_b:nth-child(2) > .ep_columns_cell_title", "css:finder"],
-        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr[2]/td[2]", "xpath:idRelative"],
-        ["xpath=//td[2]", "xpath:position"],
-        ["xpath=//td[contains(.,'Замечания по вопросу о \"Кугар\"')]", "xpath:innerText"]
+        ["css=.row_b:nth-child(2) > .ep_columns_cell_type", "css:finder"],
+        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr[2]/td[3]", "xpath:idRelative"],
+        ["xpath=//td[3]", "xpath:position"],
+        ["xpath=//td[contains(.,'Article')]", "xpath:innerText"]
       ],
-      "value": "Замечания по вопросу о \"Кугар\""
+      "value": "Article"
     }, {
-      "id": "5957d857-182c-436d-9805-296615229378",
+      "id": "3adcae70-9b4d-4e0e-8934-a49be74ae748",
       "comment": "",
-      "command": "verifyElementPresent",
+      "command": "click",
       "target": "xpath=//img[@alt='Up']",
       "targets": [
         ["css=.ep_columns_title_inner_sort img", "css:finder"],
         ["xpath=//img[@alt='Up']", "xpath:img"],
-        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr/th[2]/div/div/div[2]/a/img", "xpath:idRelative"],
-        ["xpath=//th[2]/div/div/div[2]/a/img", "xpath:position"]
+        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr/th[3]/div/div/div[2]/a/img", "xpath:idRelative"],
+        ["xpath=//th[3]/div/div/div[2]/a/img", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "fbbd5e1f-85e9-4431-89b9-eeb53c3db251",
-      "comment": "",
-      "command": "click",
-      "target": "css=.ep_columns_title_inner_sort img",
-      "targets": [
-        ["css=.ep_columns_title_inner_sort img", "css:finder"],
-        ["xpath=//img[@alt='Up']", "xpath:img"],
-        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr/th[2]/div/div/div[2]/a/img", "xpath:idRelative"],
-        ["xpath=//th[2]/div/div/div[2]/a/img", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "f7459d79-7e3d-44a7-96df-d86589d1c51f",
+      "id": "0fa9c6ca-daa1-49a3-81de-0d124592bbe6",
       "comment": "",
       "command": "verifyText",
-      "target": "css=.row_b:nth-child(2) > .ep_columns_cell_title",
+      "target": "css=.row_b:nth-child(2) > .ep_columns_cell_type",
       "targets": [
-        ["css=.row_b:nth-child(2) > .ep_columns_cell_title", "css:finder"],
-        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr[2]/td[2]", "xpath:idRelative"],
-        ["xpath=//td[2]", "xpath:position"],
-        ["xpath=//td[contains(.,'Yellow Spotted Amazon River Turtle')]", "xpath:innerText"]
+        ["css=.row_b:nth-child(2) > .ep_columns_cell_type", "css:finder"],
+        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr[2]/td[3]", "xpath:idRelative"],
+        ["xpath=//td[3]", "xpath:position"],
+        ["xpath=//td[contains(.,'Conference or Workshop Item')]", "xpath:innerText"]
       ],
-      "value": "Yellow Spotted Amazon River Turtle"
+      "value": "Conference or Workshop Item"
     }, {
-      "id": "9973d095-a1fe-4743-8d88-891ed353379d",
+      "id": "83320408-b497-4514-b826-01e7b24e90d5",
       "comment": "",
       "command": "click",
       "target": "css=.ep_columns_alter:nth-child(2) div:nth-child(3) input:nth-child(4)",
@@ -22089,8 +22113,7 @@
       ],
       "value": ""
     }, {
-      "id": "4d52dc4e-d1e8-4bb4-83c0-594d85d58d92",
-      "comment": "",
+     "comment": "",
       "command": "verifyText",
       "target": "css=.ep_columns_title:nth-child(1) div:nth-child(1) > a",
       "targets": [
@@ -22252,16 +22275,23 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "bbae623f-3a8a-4df2-a600-a2bfc771cfa6",
+      "id": "13d29817-3b4d-4b7c-a38e-2a1c825a1657",
       "comment": "",
       "command": "click",
       "target": "xpath=(//input[@name='_action_remove_col'])[4]",
       "targets": [
-        ["css=.ep_columns_alter:nth-child(3) div:nth-child(2) input:nth-child(4)", "css:finder"],
-        ["xpath=(//input[@name='_action_remove_col'])[3]", "xpath:attributes"],
-        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr[12]/td[3]/div/div/div[2]/form/input[4]", "xpath:idRelative"],
-        ["xpath=//td[3]/div/div/div[2]/form/input[4]", "xpath:position"]
+        ["css=.ep_columns_alter:nth-child(4) div:nth-child(2) input:nth-child(4)", "css:finder"],
+        ["xpath=(//input[@name='_action_remove_col'])[4]", "xpath:attributes"],
+        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr[12]/td[4]/div/div/div[2]/form/input[4]", "xpath:idRelative"],
+        ["xpath=//td[4]/div/div/div[2]/form/input[4]", "xpath:position"]
       ],
+      "value": ""
+    }, {
+      "id": "4f108b4e-a0e6-48df-a4f5-188c825214f0",
+      "comment": "",
+      "command": "webdriverChooseOkOnVisibleConfirmation",
+      "target": "",
+      "targets": [],
       "value": ""
     }, {
       "id": "479e3153-39c5-4fe8-88eb-d27066450324",
@@ -22308,13 +22338,6 @@
         ["xpath=//a[contains(.,'Item Type')]", "xpath:innerText"]
       ],
       "value": "Item Type"
-    }, {
-      "id": "2fc5d56c-0bfe-413e-9d5c-b65fff3b1cc7",
-      "comment": "",
-      "command": "verifyElementNotPresent",
-      "target": "css=.ep_columns_title:nth-child(4) a",
-      "targets": [],
-      "value": ""
     }, {
       "id": "461d8ebf-a88e-448a-acb0-b1283230f077",
       "comment": "",
@@ -22447,20 +22470,6 @@
       ],
       "value": "Actions"
     }, {
-      "id": "518abd30-ab1e-419d-b128-5457da9e9d06",
-      "comment": "",
-      "command": "chooseOkOnNextConfirmation",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "102b85a4-6ac4-46ec-ad9d-27d4d22b8152",
-      "comment": "",
-      "command": "chooseCancelOnNextConfirmation",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "d19655ea-2da7-46b3-8741-9dbbb0f614c3",
       "comment": "",
       "command": "click",
@@ -22483,7 +22492,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["abf804c2-b400-4942-befa-fe065e98fce5", "c6574580-709c-430c-ab1c-fee106fbacc0", "f27df7ba-bea5-4403-ba3c-ce826687ccc8", "1bcf32a5-3bca-48a4-8a8b-b44274bd8cdc", "00abedfd-ad42-4822-b099-a655d73a00c8", "41c7347f-ff67-4139-8929-d3913cc49804", "be2ce120-8399-4a12-b26d-dd4afc9d189e", "d4001a19-747e-4a88-8081-24f233d53f1f", "6e552348-ae91-43d7-89b4-2df18ae34d2f", "421f504c-f379-462a-b863-a43c691b11ac", "23cfd325-bfa8-48e2-b8e2-e2154637fc42", "647417fa-3416-4c4e-baec-41dd4fe0089b", "8fc4d2b0-ea20-4820-bd26-7dbb3d75a310", "0bd95055-d9a3-41b2-9caa-ed87c1dac7f7", "14aed3a9-3f3c-4f10-88c0-d07de9e51b1c", "f05abe29-1d18-4dad-a4df-7ad664f7de92", "613c6e75-e310-408e-8056-3f13e558de73", "60730b18-1bbc-46e7-8545-9662283688e0", "99468d88-a319-4e54-90b4-76308bf85b92", "1223a4ae-3476-4e94-8af0-9e51d65fa31a", "4ed5e438-eee1-466e-a4ba-815bddac4431", "7b7cbbbc-ef97-4e3d-9428-974728b93ca5", "9a8cfd2e-f240-455a-9e4a-0d9ac0532acd", "3d4f8bcf-d882-4018-b2d0-fe140739d4e5", "aa15cff0-93f8-45d8-a80f-ccfb3b610201", "a62a757d-c46e-4d42-b42a-c9ff9bca4c0e", "9ef36076-26c8-4ae8-aae7-3ec54065a0f4", "ce47a3bd-ca4c-45b2-a42a-81418153dac2", "9154015b-77b8-4017-b305-2795c87b24e2", "7b8a104c-d593-4f02-a01d-2e59797b27a3", "deb28bdc-9eb4-4d7a-bbd3-b68cd9001305", "162961bc-cacc-42b7-b970-455f29f77cee", "40043ef8-6952-4651-97b0-1e46bf8f751c", "a01fc065-24bc-47f3-b69b-ed9f4def7ca2", "70e199a2-88be-4ba1-b9fb-12a0c89d8eab", "efe4cbd1-f399-4319-b14b-da02dbf0b12e", "7483bd79-daad-4c4f-b7ab-cf3e682ad416", "aa9f3862-34b7-4ffd-8d5e-b0df8ec6e861", "fe469dd9-d752-4723-84fd-b4edee0d8993", "38d16948-3e00-4ad9-8929-56179f0b57b3", "f5ed5cab-ada3-4dbc-a7ed-66d646003722", "b7ad2423-6ffa-4cf2-86f8-f7cdaa373f55", "b48a349c-0c03-414b-b083-6217dfd3c2c6", "c733fea8-ea82-4fad-8ed0-28eca79c98f6"]
+    "tests": ["abf804c2-b400-4942-befa-fe065e98fce5", "c6574580-709c-430c-ab1c-fee106fbacc0", "f27df7ba-bea5-4403-ba3c-ce826687ccc8", "1bcf32a5-3bca-48a4-8a8b-b44274bd8cdc", "00abedfd-ad42-4822-b099-a655d73a00c8", "41c7347f-ff67-4139-8929-d3913cc49804", "be2ce120-8399-4a12-b26d-dd4afc9d189e", "d4001a19-747e-4a88-8081-24f233d53f1f", "6e552348-ae91-43d7-89b4-2df18ae34d2f", "421f504c-f379-462a-b863-a43c691b11ac", "23cfd325-bfa8-48e2-b8e2-e2154637fc42", "647417fa-3416-4c4e-baec-41dd4fe0089b", "8fc4d2b0-ea20-4820-bd26-7dbb3d75a310", "0bd95055-d9a3-41b2-9caa-ed87c1dac7f7", "14aed3a9-3f3c-4f10-88c0-d07de9e51b1c", "f05abe29-1d18-4dad-a4df-7ad664f7de92", "613c6e75-e310-408e-8056-3f13e558de73", "60730b18-1bbc-46e7-8545-9662283688e0", "99468d88-a319-4e54-90b4-76308bf85b92", "1223a4ae-3476-4e94-8af0-9e51d65fa31a", "4ed5e438-eee1-466e-a4ba-815bddac4431", "7b7cbbbc-ef97-4e3d-9428-974728b93ca5", "9a8cfd2e-f240-455a-9e4a-0d9ac0532acd", "3d4f8bcf-d882-4018-b2d0-fe140739d4e5", "aa15cff0-93f8-45d8-a80f-ccfb3b610201", "a62a757d-c46e-4d42-b42a-c9ff9bca4c0e", "9ef36076-26c8-4ae8-aae7-3ec54065a0f4", "ce47a3bd-ca4c-45b2-a42a-81418153dac2", "9154015b-77b8-4017-b305-2795c87b24e2", "7b8a104c-d593-4f02-a01d-2e59797b27a3", "deb28bdc-9eb4-4d7a-bbd3-b68cd9001305", "162961bc-cacc-42b7-b970-455f29f77cee", "40043ef8-6952-4651-97b0-1e46bf8f751c", "a01fc065-24bc-47f3-b69b-ed9f4def7ca2", "70e199a2-88be-4ba1-b9fb-12a0c89d8eab", "efe4cbd1-f399-4319-b14b-da02dbf0b12e", "7483bd79-daad-4c4f-b7ab-cf3e682ad416", "aa9f3862-34b7-4ffd-8d5e-b0df8ec6e861", "fe469dd9-d752-4723-84fd-b4edee0d8993", "38d16948-3e00-4ad9-8929-56179f0b57b3", "f5ed5cab-ada3-4dbc-a7ed-66d646003722", "b7ad2423-6ffa-4cf2-86f8-f7cdaa373f55", "b48a349c-0c03-414b-b083-6217dfd3c2c6", "88985c3c-bd5b-4851-ad11-84d1a5be2f57", "712a55eb-39cd-479a-9f36-14545eeb11cc", "c733fea8-ea82-4fad-8ed0-28eca79c98f6"]
   }],
   "urls": ["EPRINTS_URL"],
   "plugins": []
