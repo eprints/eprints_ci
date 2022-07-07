@@ -1,5 +1,5 @@
 {
-  "id": "9fa6d654-754e-4079-b7a5-b3e3bee21be8",
+  "id": "16b0758a-1d52-43ab-b134-7fa2d4188c99",
   "version": "2.0",
   "name": "eprints34_pub",
   "url": "EPRINTS_URL",
@@ -8095,23 +8095,40 @@
       ],
       "value": "20000"
     }, {
-      "id": "7f36e457-940d-4497-bad4-b5aa762b85d2",
+      "id": "9ad61911-f207-4945-8775-fa6c4343505e",
       "comment": "",
-      "command": "verifyText",
+      "command": "storeText",
       "target": "css=.ep_msg_message_text",
-      "targets": [
-        ["css=.ep_msg_message_text", "css:finder"],
-        ["xpath=//div[@id='m1']/div/div[2]", "xpath:idRelative"],
-        ["xpath=//div/div/div/div[2]", "xpath:position"]
-      ],
-      "value": "Indexer stopped successfully."
-    }, {
-      "id": "21131666-537b-45e4-a704-96dd041ee70e",
-      "comment": "",
-      "command": "pause",
-      "target": "20000",
       "targets": [],
-      "value": ""
+      "value": "indexer_msg1"
+    }, {
+      "id": "31cb59f3-240f-4add-b175-c1c2fc488d16",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${indexer_msg1}.includes(\"Indexer\");",
+      "targets": [],
+      "value": "indexer_found1"
+    }, {
+      "id": "6532cea3-0bd7-4820-89f7-9e49111a684b",
+      "comment": "",
+      "command": "assert",
+      "target": "indexer_found1",
+      "targets": [],
+      "value": "true"
+    }, {
+      "id": "94819576-b547-4d19-9892-db9c2d30cd04",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${indexer_msg1}.includes(\"successfully\");",
+      "targets": [],
+      "value": "successfully_found1"
+    }, {
+      "id": "6ce046b0-c0dd-48ee-9a41-d6b851abdf61",
+      "comment": "",
+      "command": "assert",
+      "target": "successfully_found1",
+      "targets": [],
+      "value": "true"
     }, {
       "id": "54b102a6-8114-42f5-885a-f70e8adc31e2",
       "comment": "",
@@ -8209,33 +8226,33 @@
       "command": "storeText",
       "target": "css=.ep_msg_message_text",
       "targets": [],
-      "value": "indexer_msg"
+      "value": "indexer_msg2"
     }, {
       "id": "0570e7d6-3cef-4926-8415-3ca43d5a1543",
       "comment": "",
       "command": "executeScript",
-      "target": "return ${indexer_msg}.includes(\"Indexer\");",
+      "target": "return ${indexer_msg2}.includes(\"Indexer\");",
       "targets": [],
-      "value": "indexer_found"
+      "value": "indexer_found2"
     }, {
       "id": "c1dd59cd-bdad-4b4e-950c-3cca2f6441fb",
       "comment": "",
       "command": "assert",
-      "target": "indexer_found",
+      "target": "indexer_found2",
       "targets": [],
       "value": "true"
     }, {
       "id": "be543d28-95dc-4a26-b477-ea595834eff7",
       "comment": "",
       "command": "executeScript",
-      "target": "return ${indexer_msg}.includes(\"successfully\");",
+      "target": "return ${indexer_msg2}.includes(\"successfully\");",
       "targets": [],
-      "value": "successfully_found"
+      "value": "successfully_found2"
     }, {
       "id": "74cc6611-6bc8-4450-89ad-f205a962aac7",
       "comment": "",
       "command": "assert",
-      "target": "successfully_found",
+      "target": "successfully_found2",
       "targets": [],
       "value": "true"
     }, {
@@ -21746,6 +21763,12 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "7151e79f-03a2-4c50-adc9-d147cb643929",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
     }, {
       "id": "15a5fe44-9418-4297-89a8-ff7bffd6c9e5",
       "comment": "",
@@ -21986,7 +22009,7 @@
       ],
       "value": "Conference or Workshop Item"
     }, {
-          "id": "7440ae68-b4c1-4c6b-aa20-fc21d1e8a9ce",
+      "id": "7440ae68-b4c1-4c6b-aa20-fc21d1e8a9ce",
       "comment": "",
       "command": "click",
       "target": "css=.ep_columns_title_inner_sort img",
@@ -22113,7 +22136,8 @@
       ],
       "value": ""
     }, {
-     "comment": "",
+      "id": "534bad91-61e4-468a-9550-b7a887c7f7b8",
+      "comment": "",
       "command": "verifyText",
       "target": "css=.ep_columns_title:nth-child(1) div:nth-child(1) > a",
       "targets": [
