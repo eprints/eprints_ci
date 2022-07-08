@@ -8095,40 +8095,16 @@
       ],
       "value": "20000"
     }, {
-      "id": "9ad61911-f207-4945-8775-fa6c4343505e",
+      "id": "95121239-0b53-4e68-9a12-85d0faea86b3",
       "comment": "",
-      "command": "storeText",
+      "command": "verifyText",
       "target": "css=.ep_msg_message_text",
-      "targets": [],
-      "value": "indexer_msg1"
-    }, {
-      "id": "31cb59f3-240f-4add-b175-c1c2fc488d16",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return ${indexer_msg1}.includes(\"Indexer\");",
-      "targets": [],
-      "value": "indexer_found1"
-    }, {
-      "id": "6532cea3-0bd7-4820-89f7-9e49111a684b",
-      "comment": "",
-      "command": "assert",
-      "target": "indexer_found1",
-      "targets": [],
-      "value": "true"
-    }, {
-      "id": "94819576-b547-4d19-9892-db9c2d30cd04",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return ${indexer_msg1}.includes(\"successfully\");",
-      "targets": [],
-      "value": "successfully_found1"
-    }, {
-      "id": "6ce046b0-c0dd-48ee-9a41-d6b851abdf61",
-      "comment": "",
-      "command": "assert",
-      "target": "successfully_found1",
-      "targets": [],
-      "value": "true"
+      "targets": [
+        ["css=.ep_msg_message_text", "css:finder"],
+        ["xpath=//div[@id='m1']/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div/div/div/div[2]", "xpath:position"]
+      ],
+      "value": "Indexer stopped successfully."
     }, {
       "id": "54b102a6-8114-42f5-885a-f70e8adc31e2",
       "comment": "",
@@ -8170,16 +8146,40 @@
       ],
       "value": "20000"
     }, {
-      "id": "95121239-0b53-4e68-9a12-85d0faea86b3",
+      "id": "9ad61911-f207-4945-8775-fa6c4343505e",
       "comment": "",
-      "command": "verifyText",
+      "command": "storeText",
       "target": "css=.ep_msg_message_text",
-      "targets": [
-        ["css=.ep_msg_message_text", "css:finder"],
-        ["xpath=//div[@id='m1']/div/div[2]", "xpath:idRelative"],
-        ["xpath=//div/div/div/div[2]", "xpath:position"]
-      ],
-      "value": "Indexer started successfully."
+      "targets": [],
+      "value": "indexer_msg1"
+    }, {
+      "id": "31cb59f3-240f-4add-b175-c1c2fc488d16",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${indexer_msg1}.includes(\"Indexer\");",
+      "targets": [],
+      "value": "indexer_found1"
+    }, {
+      "id": "6532cea3-0bd7-4820-89f7-9e49111a684b",
+      "comment": "",
+      "command": "assert",
+      "target": "indexer_found1",
+      "targets": [],
+      "value": "true"
+    }, {
+      "id": "94819576-b547-4d19-9892-db9c2d30cd04",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${indexer_msg1}.includes(\"successfully\");",
+      "targets": [],
+      "value": "successfully_found1"
+    }, {
+      "id": "6ce046b0-c0dd-48ee-9a41-d6b851abdf61",
+      "comment": "",
+      "command": "assert",
+      "target": "successfully_found1",
+      "targets": [],
+      "value": "true"
     }, {
       "id": "e2e05362-ef16-4538-b020-5c67cba324d6",
       "comment": "",
