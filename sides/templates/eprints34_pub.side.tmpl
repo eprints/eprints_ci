@@ -8181,6 +8181,60 @@
       "targets": [],
       "value": "true"
     }, {
+      "id": "cfc5d686-d9c7-4a42-9498-463e10aec172",
+      "comment": "",
+      "command": "if",
+      "target": "${indexer_msg1} != \"Indexer started successfully.\"",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9a4e97b8-d31d-4f7b-8dcb-bcebb78e01b2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=System Tools",
+      "targets": [
+        ["linkText=System Tools", "linkText"],
+        ["css=#ep_admin_tabs_tab_1 > a", "css:finder"],
+        ["xpath=//a[contains(text(),'System Tools')]", "xpath:link"],
+        ["xpath=//a[@onclick=\"return ep_showTab('ep_admin_tabs','1',0);\"]", "xpath:attributes"],
+        ["xpath=//li[@id='ep_admin_tabs_tab_1']/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/cgi/users/home?screen=Admin&ep_admin_tabs_current=1')]", "xpath:href"],
+        ["xpath=//body/div/div/div/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'System Tools')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d68c5f3f-e0c5-41ff-8b0a-ea3c6f5ba218",
+      "comment": "",
+      "command": "click",
+      "target": "name=_action_start_indexer",
+      "targets": [
+        ["name=_action_start_indexer", "name"],
+        ["css=#admin_actions_system > dt:nth-child(5) .ep_form_action_button", "css:finder"],
+        ["xpath=//input[@name='_action_start_indexer']", "xpath:attributes"],
+        ["xpath=//dl[@id='admin_actions_system']/dt[3]/form/input[3]", "xpath:idRelative"],
+        ["xpath=//dt[3]/form/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9eb6b186-66b0-4a73-a931-5963ccefea08",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.ep_msg_message_text",
+      "targets": [
+        ["css=.ep_msg_message_text", "css:finder"],
+        ["xpath=//div[@id='m1']/div/div[2]", "xpath:idRelative"],
+        ["xpath=//div/div/div/div[2]", "xpath:position"]
+      ],
+      "value": "Indexer started successfully."
+    }, {
+      "id": "940b7f8d-12e5-4401-bba3-e4005ad1c8bc",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "e2e05362-ef16-4538-b020-5c67cba324d6",
       "comment": "",
       "command": "click",
