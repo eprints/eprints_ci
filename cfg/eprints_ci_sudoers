@@ -4,6 +4,7 @@
 Defaults:eprints !requiretty
 eprints ALL= NOPASSWD : /usr/bin/systemctl start httpd
 eprints ALL= NOPASSWD : /usr/bin/systemctl stop httpd
+eprints ALL= NOPASSWD : /usr/bin/mysql
 
 # User:jenkins
 Defaults:jenkins !requiretty
