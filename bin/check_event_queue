@@ -1,0 +1,16 @@
+#!/bin/bash
+URL=$1
+MAXLEFT=$2
+SLEEP=$3
+LASTSLEEP=$4
+tasks=`curl -s -k $URL/cgi/counter | grep "event_queue:" | grep -o "[0-9]\+"`
+while [ $tasks -gt $MAXLEFT ]; do
+	echo "$tasks tasks left in the event queue. Sleeping $SLEEP seconds."
+	sleep $SLEEP
+	tasks=`curl -s -k $URL/cgi/counter | grep "event_queue:" | grep -o "[0-9]\+"`
+done
+if [ $tasks -gt 0 ]; then
+	echo "$tasks tasks left in the event queue. Taking last sleep of $SLEEP seconds."
+	sleep $LASTSLEEP
+fi
+echo "Finished waiting. $tasks tasks left in the event queue."

@@ -2,6 +2,7 @@
 EPRINTS_PATH=$1
 EPRINTS_URL=$2
 SELENIUM_PROJECT=$3
+ARCHIVE=$4
 d=`dirname $0`
 DIR=`cd $d; pwd`
 cd $DIR/../
@@ -23,4 +24,8 @@ if [ -d $EPRINTS_PATH/lib/static/ ]; then
 else
         echo "WARNING: You will need to copy `pwd`/cfg/test.pdf to $EPRINTS_PATH/lib/static/ on your EPrints repository server!"
 fi
+cd $EPRINTS_PATH/archives/$ARCHIVE/html/en/
+ln -s $EPRINTS_PATH/archives/$ARCHIVE/var/
+echo -n "undefined" > $EPRINTS_PATH/archives/$ARCHIVE/var/abstracts.timestamp
+echo -n "undefined" > $EPRINTS_PATH/archives/$ARCHIVE/var/views.timestamp
 
