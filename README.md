@@ -1,5 +1,6 @@
 # EPrints Continuous Integration Environment
-**Instructions need to be upgraded to describe new way of running CI against EPrints 3.5**
+**Instructions need to be upgraded to describe new way of running CI against EPrints 3.5.**
+
 EPrints Continuous Integration Environment is a framework for deploying automated testing of EPrints repositories.  It is intended to allow changes to the [EPrints codebase](https://github.com/eprints/eprints3.4) to be comprehensively tested to ensure they cause no unexpected side effects.  The framework in built around [Selenium IDE](https://www.selenium.dev/selenium-ide/) for building and running user acceptance tests and [Jenkins](https://www.jenkins.io/) for automating building, testing and evaluating EPrints.  The instructions that follow have been tested on a CentOS 7 Linux operating system.
 
 ## Deploying Configuration and SIDE Files 
