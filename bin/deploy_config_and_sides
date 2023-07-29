@@ -28,4 +28,6 @@ cd $EPRINTS_PATH/archives/$ARCHIVE/html/en/
 ln -s $EPRINTS_PATH/archives/$ARCHIVE/var/
 echo -n "undefined" > $EPRINTS_PATH/archives/$ARCHIVE/var/abstracts.timestamp
 echo -n "undefined" > $EPRINTS_PATH/archives/$ARCHIVE/var/views.timestamp
-
+sudo systemctl stop httpd
+sudo systemctl start httpd
+wget -O /dev/null $EPRINTS_URL/selenium.html
