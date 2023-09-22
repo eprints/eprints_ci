@@ -757,12 +757,7 @@
       "command": "verifyElementPresent",
       "target": "name=documents",
       "targets": [
-        ["id=documents_merge", "id"],
-        ["name=documents_merge", "name"],
-        ["css=#documents_merge", "css:finder"],
-        ["xpath=//select[@id='documents_merge']", "xpath:attributes"],
-        ["xpath=//div[@id='documents_help_outer']/select", "xpath:idRelative"],
-        ["xpath=//select", "xpath:position"]
+        ["name=documents", "name"]
       ],
       "value": ""
     }, {
@@ -771,11 +766,12 @@
       "command": "verifyElementPresent",
       "target": "id=title_merge",
       "targets": [
-        ["id=documents_merge", "id"],
-        ["name=documents_merge", "name"],
-        ["css=#documents_merge", "css:finder"],
-        ["xpath=//select[@id='documents_merge']", "xpath:attributes"],
-        ["xpath=//div[@id='documents_help_outer']/select", "xpath:idRelative"],
+        ["id=title_merge", "id"],
+        ["name=title_merge", "name"],
+        ["css=#title_merge", "css:finder"],
+        ["xpath=//select[@id='title_merge']", "xpath:attributes"],
+        ["name=title_merge", "name"],
+        ["xpath=//div[@id='title_help_outer']/select", "xpath:idRelative"],
         ["xpath=//select", "xpath:position"]
       ],
       "value": ""
@@ -785,12 +781,7 @@
       "command": "verifyElementPresent",
       "target": "name=title",
       "targets": [
-        ["id=documents_merge", "id"],
-        ["name=documents_merge", "name"],
-        ["css=#documents_merge", "css:finder"],
-        ["xpath=//select[@id='documents_merge']", "xpath:attributes"],
-        ["xpath=//div[@id='documents_help_outer']/select", "xpath:idRelative"],
-        ["xpath=//select", "xpath:position"]
+        ["name=title", "name"]
       ],
       "value": ""
     }, {
@@ -799,11 +790,11 @@
       "command": "verifyElementPresent",
       "target": "id=subjects_merge",
       "targets": [
-        ["id=documents_merge", "id"],
-        ["name=documents_merge", "name"],
-        ["css=#documents_merge", "css:finder"],
-        ["xpath=//select[@id='documents_merge']", "xpath:attributes"],
-        ["xpath=//div[@id='documents_help_outer']/select", "xpath:idRelative"],
+        ["id=subjects_merge", "id"],
+        ["name=subjects_merge", "name"],
+        ["css=#subjects_merge", "css:finder"],
+        ["xpath=//select[@id='subjects_merge']", "xpath:attributes"],
+        ["xpath=//div[@id='subjects_help_outer']/select", "xpath:idRelative"],
         ["xpath=//select", "xpath:position"]
       ],
       "value": ""
@@ -845,7 +836,7 @@
       "id": "3ba089b0-320d-4b28-8d92-c1a8b317d0bb",
       "comment": "",
       "command": "verifyElementPresent",
-      "target": "id=order",
+      "target": "name=order",
       "targets": [],
       "value": ""
     }, {
@@ -931,12 +922,9 @@
       "id": "24b4a9f0-2417-42e0-8c80-56f6e3b50c5b",
       "comment": "",
       "command": "verifyElementPresent",
-      "target": "id=order",
+      "target": "name=order",
       "targets": [
-        ["id=order", "id"],
         ["name=order", "name"],
-        ["css=.ep_search_controls #order", "css:finder"],
-        ["xpath=//select[@id='order']", "xpath:attributes"],
         ["xpath=//div[@id='main_content']/div/div[2]/div/div/form/select", "xpath:idRelative"],
         ["xpath=//select", "xpath:position"]
       ],
@@ -1079,12 +1067,9 @@
       "id": "7fec4128-06a6-4f72-8c2a-e32deb57dfc6",
       "comment": "",
       "command": "click",
-      "target": "id=searchbutton",
+      "target": "name=_action_search",
       "targets": [
-        ["id=searchbutton", "id"],
         ["name=_action_search", "name"],
-        ["css=#searchbutton", "css:finder"],
-        ["xpath=//input[@id='searchbutton']", "xpath:attributes"],
         ["xpath=//div[@id='wrapper']/header/div/div/div[2]/form/input[2]", "xpath:idRelative"],
         ["xpath=//input[2]", "xpath:position"]
       ],
@@ -1164,12 +1149,9 @@
       "id": "9018fd60-a36e-4d2d-9932-6754c4c65078",
       "comment": "",
       "command": "verifyElementPresent",
-      "target": "id=order",
+      "target": "name=order",
       "targets": [
-        ["id=order", "id"],
         ["name=order", "name"],
-        ["css=.ep_search_controls #order", "css:finder"],
-        ["xpath=//select[@id='order']", "xpath:attributes"],
         ["xpath=//div[@id='main_content']/div/div[2]/div/div/form/select", "xpath:idRelative"],
         ["xpath=//select", "xpath:position"]
       ],
