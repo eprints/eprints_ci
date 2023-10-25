@@ -5989,12 +5989,9 @@
       "id": "d8d63b3d-b2a8-4662-8eca-fa5f5114d1ae",
       "comment": "",
       "command": "verifyText",
-      "target": "css=label",
+      "target": "css=div > label",
       "targets": [
-        ["css=label", "css:finder"],
-        ["xpath=//div[@id='main_content']/div/div[3]/form/div/div/div/label", "xpath:idRelative"],
-        ["xpath=//label", "xpath:position"],
-        ["xpath=//label[contains(.,'Export 1 results as')]", "xpath:innerText"]
+        ["css=div > label", "css:finder"]
       ],
       "value": "Export 1 results as"
     }, {
@@ -11658,11 +11655,8 @@
       "command": "click",
       "target": "xpath=(//a[contains(text(),'Delete')])[16]",
       "targets": [
-        ["css=dd:nth-child(12) .ep_fileselector > a", "css:finder"],
-        ["xpath=(//a[contains(text(),'Delete')])[16]", "xpath:link"],
-        ["xpath=//div[@id='ep_fileselector']/dl/dd/dl/dd[6]/dl/dt[4]/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/cgi/users/home?screen=Admin%3A%3AConfig&configfile=static%2Ftest&_action_delete=1')]", "xpath:href"],
-        ["xpath=//dd[6]/dl/dt[4]/a", "xpath:position"]
+        ["css=.ep_fileselector:nth-child(7) > a", "css:finder"],
+        ["xpath=(//a[contains(text(),'Delete')])[16]", "xpath:link"]
       ],
       "value": ""
     }, {
