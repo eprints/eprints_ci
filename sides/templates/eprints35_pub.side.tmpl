@@ -6878,7 +6878,7 @@
         ["xpath=//div[@id='main_content']/div/div[2]/p", "xpath:idRelative"],
         ["xpath=//p", "xpath:position"]
       ],
-      "value": "Are you sure you want to destroy ${user_destroy_name_honourific} ${user_destroy_name_given} ${user_destroy_name_family} ? This action cannot be undone."
+      "value": "Are you sure you want to destroy ${user_destroy_name_honourific} ${user_destroy_name_given} ${user_destroy_name_family}? This action cannot be undone."
     }, {
       "id": "727fc6e8-91c3-47e3-8fb3-01c616261e71",
       "comment": "",
@@ -11370,7 +11370,7 @@
         ["xpath=//h1[@id='page-title']", "xpath:attributes"],
         ["xpath=//div[@id='main_content']/div/h1", "xpath:idRelative"],
         ["xpath=//h1", "xpath:position"],
-        ["xpath=//h1[contains(.,'View config file: cfg.d/99_test.pl')]", "xpath:innerText"]
+        ["xpath=//h1[contains(.,'View config file: cfg.d/${config_file_name}')]", "xpath:innerText"]
       ],
       "value": "View config file: cfg.d/${config_file_name}"
     }, {
@@ -11489,12 +11489,12 @@
       "id": "04446c31-5afe-44eb-8388-364916e129dd",
       "comment": "",
       "command": "click",
-      "target": "xpath=(//a[contains(text(),'Delete')])[4]",
+      "target": "xpath=//a[contains(@href, '/cgi/users/home?screen=Admin%3A%3AConfig&configfile=cfg.d%2F${config_file_name}&_action_delete=1')]",
       "targets": [
         ["css=dd:nth-child(6) dt:nth-child(5) > a:nth-child(2)", "css:finder"],
         ["xpath=(//a[contains(text(),'Delete')])[4]", "xpath:link"],
         ["xpath=//div[@id='ep_fileselector']/dl/dd/dl/dd[3]/dl/dt[3]/a[2]", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/cgi/users/home?screen=Admin%3A%3AConfig&configfile=cfg.d%2F99_test.pl&_action_delete=1')]", "xpath:href"],
+        ["xpath=//a[contains(@href, '/cgi/users/home?screen=Admin%3A%3AConfig&configfile=cfg.d%2F${config_file_name}&_action_delete=1')]", "xpath:href"],
         ["xpath=//dt[3]/a[2]", "xpath:position"]
       ],
       "value": ""
@@ -11587,10 +11587,13 @@
       "id": "ead62f8c-9cbd-4c52-8d5f-e10354c8787e",
       "comment": "",
       "command": "click",
-      "target": "xpath=(//a[contains(text(),'Delete')])[16]",
+      "target": "xpath=//a[contains(@href, '/cgi/users/home?screen=Admin%3A%3AConfig&configfile=static%2F${config_directory_name}&_action_delete=1')]",
       "targets": [
         ["css=.ep_fileselector:nth-child(7) > a", "css:finder"],
-        ["xpath=(//a[contains(text(),'Delete')])[16]", "xpath:link"]
+        ["xpath=(//a[contains(text(),'Delete')])[16]", "xpath:link"],
+        ["xpath=//div[@id='ep_fileselector']/dl/dd/dl/dd[7]/dl/dt[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/cgi/users/home?screen=Admin%3A%3AConfig&configfile=static%2F${config_directory_name}&_action_delete=1')]", "xpath:href"],
+        ["xpath=//dd[7]/dl/dt[4]/a", "xpath:position"]
       ],
       "value": ""
     }, {
