@@ -8275,19 +8275,11 @@
       "targets": [],
       "value": "true"
     }, {
-      "id": "a24617e8-c8fa-468a-a1da-bcc4e9ebae68",
+      "id": "596cd4a1-8d91-41a5-a0ad-d1eb36ebf8d0",
       "comment": "",
-      "command": "click",
-      "target": "linkText=Logout",
-      "targets": [
-        ["linkText=Logout", "linkText"],
-        ["css=li:nth-child(9) > a", "css:finder"],
-        ["xpath=//a[contains(text(),'Logout')]", "xpath:link"],
-        ["xpath=//ul[@id='ep_tm_menu_tools']/li[9]/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/cgi/logout')]", "xpath:href"],
-        ["xpath=//li[9]/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Logout')]", "xpath:innerText"]
-      ],
+      "command": "open",
+      "target": "/cgi/logout",
+      "targets": [],
       "value": ""
     }]
   }, {
