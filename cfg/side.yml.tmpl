@@ -1,3 +1,6 @@
-capabilities: 
-  browserName: "firefox" 
-outputFormat: "junit" 
+capabilities:
+  browserName: "firefox"
+  moz:firefoxOptions:
+    args:
+    - "-window-size"
+    - '1920,1080'

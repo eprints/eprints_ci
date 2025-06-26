@@ -9,6 +9,12 @@ cd $DIR/../
 template="$SELENIUM_PROJECT.side.tmpl"
 side=`echo $template | sed 's/\.tmpl$//'`
 cat sides/templates/$template | sed "s!EPRINTS_URL!$EPRINTS_URL!g" | sed 's/\\\\n/\\n/g' > sides/$side
+if [ ! -f cfg/side.yml ]; then
+	cp cfg/side.yml.tmpl cfg/side.yml
+fi
+if [ ! -f cfg/selenium.xhtml ]; then
+	cp cfg/selenium.xhtml.tmpl cfg/selenium.xhtml
+fi
 if [ -d $EPRINTS_PATH/lib/static/ ]; then
 	cp cfg/selenium.xhtml $EPRINTS_PATH/lib/static/
 else
@@ -24,10 +30,14 @@ if [ -d $EPRINTS_PATH/lib/static/ ]; then
 else
         echo "WARNING: You will need to copy `pwd`/cfg/test.pdf to $EPRINTS_PATH/lib/static/ on your EPrints repository server!"
 fi
+cp cfg/zz_rewrite_exceptions.pl $EPRINTS_PATH/archives/$ARCHIVE/cfg/cfg.d/
 cd $EPRINTS_PATH/archives/$ARCHIVE/html/en/
 ln -s $EPRINTS_PATH/archives/$ARCHIVE/var/
 echo -n "undefined" > $EPRINTS_PATH/archives/$ARCHIVE/var/abstracts.timestamp
 echo -n "undefined" > $EPRINTS_PATH/archives/$ARCHIVE/var/views.timestamp
+sudo /usr/bin/rm -rf /var/www/html/screenshots
+sudo /usr/bin/mkdir -p /var/www/html/screenshots
+sudo /usr/bin/chown jenkins:jenkins /var/www/html/screenshots
 sudo systemctl stop httpd
 sudo systemctl start httpd
 wget -O /dev/null $EPRINTS_URL/selenium.html

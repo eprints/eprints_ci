@@ -5,13 +5,17 @@ Defaults:eprints !requiretty
 eprints ALL= NOPASSWD : /usr/bin/systemctl start httpd
 eprints ALL= NOPASSWD : /usr/bin/systemctl stop httpd
 eprints ALL= NOPASSWD : /usr/bin/mysql
+eprints ALL= NOPASSWD : /usr/bin/rm -rf /var/www/html/screenshots
+eprints ALL= NOPASSWD : /usr/bin/mkdir -p /var/www/html/screenshots
+eprints ALL= NOPASSWD : /usr/bin/chown jenkins\:jenkins /var/www/html/screenshots
 
 # User:jenkins
 Defaults:jenkins !requiretty
 Cmnd_Alias RESTORE_EPRINTS_TEMPLATE_CMD = /usr/local/share/eprints_ci/bin/restore_eprints_template
+Cmnd_Alias CREATE_EPRINTS_ARCHIVE_CMD = /usr/local/share/eprints_ci/bin/create_eprints_archive
+Cmnd_Alias DEPLOY_CONFIG_AND_SIDES_CMD = /usr/local/share/eprints_ci/bin/deploy_config_and_sides
 Cmnd_Alias JUNIT_TESTS_CMD = /opt/eprints3/bin/junit_tests
 Cmnd_Alias CHOWN_WORKSPACE_CMD = /usr/bin/chown -R eprints\:eprints /var/lib/jenkins/workspace/*
 Cmnd_Alias CHOWN_RESULTS_CMD = /usr/bin/chown -R jenkins\:jenkins /var/lib/jenkins/workspace/*
-jenkins ALL=(eprints) NOPASSWD: RESTORE_EPRINTS_TEMPLATE_CMD, JUNIT_TESTS_CMD
-jenkins ALL =(root) NOPASSWD: CHOWN_WORKSPACE_CMD, CHOWN_RESULTS_CMD
-
+jenkins ALL=(eprints) NOPASSWD: RESTORE_EPRINTS_TEMPLATE_CMD, CREATE_EPRINTS_ARCHIVE_CMD, DEPLOY_CONFIG_AND_SIDES_CMD, JUNIT_TESTS_CMD
+jenkins ALL=(root) NOPASSWD: CHOWN_WORKSPACE_CMD, CHOWN_RESULTS_CMD

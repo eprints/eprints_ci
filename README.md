@@ -24,13 +24,21 @@ These instructions are based on those required for RHEL/CentOS 7.  It may be pos
 
     ```yum install -y nodejs```
 
+4. As root, Use npm to make sure latest version of itself is installed
+
+    ```npm install -g npm```
+
 4. As root, Use npm to install selenium-side-runner
 
     ```npm install -g selenium-side-runner```
 
 5. As root, Use npm to install geckodriver
 
-    ```npm install -g geckodriver  --unsafe-perm=true --allow-root```
+    ```npm install -g geckodriver```
+
+5. As root, Use npm to install jest-junit
+
+    ```npm install -g jest-junit```
 
 6. As root, install Firefox and Xvfb to it can be run in headless mode
 
@@ -47,8 +55,7 @@ These instructions are based on those required for RHEL/CentOS 7.  It may be pos
     ```
 
 8. Now you can run a Selenium SIDE file to run tests against EPrints:
-
-    ```selenium-side-runner -c "browserName=firefox" sides/eprints.side```
+    ```DISPLAY=:55 JEST_JUNIT_OUTPUT_DIR=/tmp/ JEST_JUNIT_OUTPUT_NAME=eprints.xml selenium-side-runner -c "browserName=firefox" -j " --reporters=jest-junit  --reporters=default --detectOpenHandles --forceExit " eprints.side```
     
 ## Making SIDE Templates from Working Copies
 Run the ```bin/make_side_template``` script to write a deployed SIDE file as a template that can be committed back to version control:
@@ -106,12 +113,12 @@ Now you have an EPrints archive templates you have all the elements you need to 
     chmod -R g+w ${WORKSPACE}
     sudo /usr/bin/chown -R eprints:eprints ${WORKSPACE}/*
     mkdir ${WORKSPACE}/results
-    cat /usr/local/share/eprints_ci/cfg/selenium.xhtml.tmpl | sed "s/ARCHIVE_NAME/EPrints/" > /usr/local/share/eprints_ci/cfg/selenium.xhtml
-    sudo -u eprints /usr/local/share/eprints_ci/bin/restore_eprints_template test_archive ${WORKSPACE} http://example.eprints.org eprints34_pub
+    cat /usr/local/share/eprints_ci/cfg/selenium.xhtml.tmpl | sed "s/ARCHIVE_NAME/EPrints/" | sed "s/ADMIN_EMAIL/eprints@example.org/" > /usr/local/share/eprints_ci/cfg/selenium.xhtml
+    sudo -u eprints /usr/local/share/eprints_ci/bin/restore_eprints_template test_archive ${WORKSPACE} https://eprints.example.org test
 8. Add a second **Execute shell** stage under the **Build** section.  This is stage is for running tests for an EPrints publications archive under the ```selenium-side-runner```, using a headless version of Firefox.  If you want to run tests against a zero archive then switch *eprints34_pub.side* for *eprints34_zero.side*.
     export DISPLAY=:55
     cd ${WORKSPACE}
-    selenium-side-runner --config-file=/usr/local/share/eprints_ci/cfg/side.yml --output-directory=results --output-format=junit /usr/local/share/eprints_ci/sides/eprints34_pub.side  
+    JEST_JUNIT_OUTPUT_DIR=results JEST_JUNIT_OUTPUT_NAME=acceptance_testx.xml selenium-side-runner --config-file=/usr/local/share/eprints_ci/cfg/side.yml -j " --reporters=jest-junit  --reporters=default --detectOpenHandles --forceExit " --output-directory=results --screenshot-failure-directory=/var/www/html/screenshots/ /usr/local/share/eprints_ci/sides/eprints34_pub.side  
 9. Under the **Post-build Action** add a **Publish JUnit test result report** stage and set the **Test report XMLs** to ```results/*.xml```.
 10. You may also want to set up some notifications.  Email is the easiest to set up by you could try [Slack notifications](https://medium.com/appgambit/integrating-jenkins-with-slack-notifications-4f14d1ce9c7a).
 11. Finally click on **Save** and you will be taken back to the project's homepage and you can **Build Now**.
@@ -119,6 +126,19 @@ Now you have an EPrints archive templates you have all the elements you need to 
 ## Files
 
 ### bin/ (scripts)
+
+* ```check_event_queue <URL> <MAXLEFT> <SLEEP> <LASTSLEEP>```
+  * Checks the event queue to hold off running tests until all tasks have completed.
+  * **URL** - The URL of the EPrints repository where /cgi/counter can be found to see how many tasks are left in the event queue.
+  * **MAXLEFT** - The maximum number or tasks before the last wait before starting tests.
+  * **SLEEP** - The amount of seconds to sleep before checking how many tasks are left.
+  * **LASTSLEEP** - The amount of seconds to sleep for the last time once the number of tasks is equal of fewer than MAXLEFT
+
+* ```create_eprints_archive <ARCHIVE> <LOCATION> <URL>```
+  * Creates a new archive using a pre-defined YAML configuration file. Only possible in EPrints 3.5.
+  * **ARCHIVE** - The ID of the archive and the directory it will appear as under archives/.
+  * **LOCATION** - The location where EPrints is installed so this can be sym-linked from the regular EPrints path (/opt/eprints3).
+  * **URL** - The URL of the EPrints repository that gets passed to check_event_queue.
 
 * ```deploy_config_and_sides <EPRINTS_PATH> <EPRINTS_URL>```
   * Generates runnable Selenium SIDE files from templates and deploys Selenium configuration web page to EPrints repository to load configuration variables into Selenium tests.
@@ -150,27 +170,33 @@ Now you have an EPrints archive templates you have all the elements you need to 
 * ```selenium.xhtml.tmpl```
   * Contains configurable options for Selenium tests.  
   * Needs to be copied to ```selenium.xhtml``` and any modifications made to that file before running ```deploy_config_and_sides```
-* ```test.pdf```
-  * A PDF to upload from a URL for testing purposes.  
 * ```side.yml.tmpl```
   * Contains configuration settings for running SIDE files with ```selenium-side-runner```.
   * Should be copied to ```side.yml``` before making any modifications.
+* ```test.pdf```
+  * A PDF to upload from a URL for testing purposes.  
 * ```xvfb-55.service```
   * Systemd unit for running ```Xvfb``` on ```DISPLAY=:55``` 
+* ```zz_rewrite_exceptions.pl```
+  * EPrints configuration so you can see failed screenshots through the web interface for the EPrints repository.
 
 ### sides/
 This directory will initially contain no files as the ```bin/deploy_config_and_sides``` needs to be run to convert the template SIDE files in the ```templates/``` sub-directory into this directory.
 
 #### sides/template/
 * ```dummy.side.tmpl``` - Single dummy test for an EPrints repository.  Useful for checking that CI environment can handle Selenium test results.
-* ```eprints34_pub.side.tmpl``` - All tests for a publication flavour EPrints repository.
-* ```eprints34_zero.side.tmpl``` - All tests for a no flavour (zero) EPrints repository.
+* ```eprints34_pub.side.tmpl``` - All tests for a publication flavour EPrints 3.4.x repository.
+* ```eprints34_zero.side.tmpl``` - All tests for a no flavour (zero) EPrints 3.4.x repository.
+* ```eprints35_pub.side.tmpl``` -  All tests for a publication flavour EPrints 3.5.x repository.
 * ```test.yml``` Like the dummy test but intended as a scratchpad for debugging issues, (e.g. different behaviours between Selenium IDE on FireFox and the Selenium Side Runner.
 
 
 ### templates/
 This directory contains templates, effectively backups of EPrints archives that can be restored using the ```restore_eprints_template``` script.  This directory contains two (initially empty) separate directories:
-* ```databases/``` - MySQL dumps of EPrints archives.
 * ```archives/``` - archive sub-directory that would have been installed under EPrints' ```archives/``` directory.
+* ```config/``` - Configuration used by check_event_queue so only applicable to EPrints 3.5.
+** ```create.yml``` - A YAML file used to provide all configuration when running "epadmin create".
+** ```securevhost.conf``` - A pre-built Apacge HTTPS configuration for the archive, so it know where to find its certificate, etc.
+* ```databases/``` - MySQL dumps of EPrints archives.
 
 
