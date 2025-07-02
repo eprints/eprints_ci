@@ -10859,7 +10859,7 @@
       "command": "verifyElementPresent",
       "target": "id=Storage::Local_history_migrate",
       "targets": [
-	["id=Storage::Local_history_migrate", "id"],
+        ["id=Storage::Local_history_migrate", "id"],
         ["css=tr:nth-child(2) #Storage\\3A\\3ALocal_history_migrate", "css:finder"],
         ["xpath=//div[@id='stats_Storage::Local']/table/tbody/tr[2]/td[2]/form/input[4]", "xpath:idRelative"],
         ["xpath=//tr[2]/td[2]/form/input[4]", "xpath:position"]
@@ -15242,7 +15242,7 @@
       "command": "click",
       "target": "id=c20_refereed_${eprint_1_refereed_value}",
       "targets": [
-	["id=c20_refereed_${eprint_1_refereed_value}", "id"],
+        ["id=c20_refereed_${eprint_1_refereed_value}", "id"],
         ["css=#c20_refereed_false", "css:finder"],
         ["xpath=//div[@id='c20_refereed_cell_0_0']/dl/dt[2]/input", "xpath:idRelative"],
         ["xpath=//dt[2]/input", "xpath:position"]
@@ -22152,14 +22152,14 @@
       ],
       "value": "Item Status"
     }, {
-      "id": "c66d836c-a529-4985-b99c-12f830ebcf82",
+      "id": "49c8b0c8-60a4-4367-96c6-e966a2577541",
       "comment": "",
       "command": "verifyText",
-      "target": "xpath=//th[5]/span",
+      "target": "css=.ep_columns_title > span",
       "targets": [
         ["css=.ep_columns_title > span", "css:finder"],
-        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr/th[5]/span", "xpath:idRelative"],
-        ["xpath=//th[5]/span", "xpath:position"],
+        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr/th[6]/span", "xpath:idRelative"],
+        ["xpath=//th[6]/span", "xpath:position"],
         ["xpath=//span[contains(.,'Actions')]", "xpath:innerText"]
       ],
       "value": "Actions"
@@ -22418,14 +22418,14 @@
       ],
       "value": "Item Status"
     }, {
-      "id": "ad7f1ecc-85fb-4f4a-ab52-c2b0ed9e5124",
+      "id": "dc3c9d8d-8486-4434-8c7c-ba96b9b676f7",
       "comment": "",
       "command": "verifyText",
-      "target": "xpath=//th[5]/span",
+      "target": "css=.ep_columns_title > span",
       "targets": [
         ["css=.ep_columns_title > span", "css:finder"],
-        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr/th[5]/span", "xpath:idRelative"],
-        ["xpath=//th[5]/span", "xpath:position"],
+        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr/th[6]/span", "xpath:idRelative"],
+        ["xpath=//th[6]/span", "xpath:position"],
         ["xpath=//span[contains(.,'Actions')]", "xpath:innerText"]
       ],
       "value": "Actions"
@@ -22502,73 +22502,17 @@
       ],
       "value": "Item Status"
     }, {
-      "id": "4f4d754a-b401-4221-89d8-c9ba6a9cb1da",
+      "id": "9a4488f9-10cc-4a5f-8923-c68d2534aefb",
       "comment": "",
       "command": "verifyText",
-      "target": "xpath=//th[5]/span",
+      "target": "css=.ep_columns_title > span",
       "targets": [
         ["css=.ep_columns_title > span", "css:finder"],
-        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr/th[5]/span", "xpath:idRelative"],
-        ["xpath=//th[5]/span", "xpath:position"],
+        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr/th[6]/span", "xpath:idRelative"],
+        ["xpath=//th[6]/span", "xpath:position"],
         ["xpath=//span[contains(.,'Actions')]", "xpath:innerText"]
       ],
       "value": "Actions"
-    }, {
-      "id": "613606b7-efb8-43a8-ac76-c7c8bd7e3e8b",
-      "comment": "",
-      "command": "chooseOkOnNextConfirmation",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "13d29817-3b4d-4b7c-a38e-2a1c825a1657",
-      "comment": "",
-      "command": "click",
-      "target": "xpath=(//input[@name='_action_remove_col'])[4]",
-      "targets": [
-        ["css=.ep_columns_alter:nth-child(4) div:nth-child(2) input:nth-child(4)", "css:finder"],
-        ["xpath=(//input[@name='_action_remove_col'])[4]", "xpath:attributes"],
-        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr[12]/td[4]/div/div/div[2]/form/input[4]", "xpath:idRelative"],
-        ["xpath=//td[4]/div/div/div[2]/form/input[4]", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "4f108b4e-a0e6-48df-a4f5-188c825214f0",
-      "comment": "",
-      "command": "webdriverChooseOkOnVisibleConfirmation",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "479e3153-39c5-4fe8-88eb-d27066450324",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=.ep_columns_title:nth-child(1) div:nth-child(1) > a",
-      "targets": [
-        ["linkText=Last Modified", "linkText"],
-        ["css=.ep_columns_title:nth-child(1) div:nth-child(1) > a", "css:finder"],
-        ["xpath=//a[contains(text(),'Last Modified')]", "xpath:link"],
-        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr/th/div/div/div/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/cgi/users/home?screen=Items&_buffer_offset=0&_buffer_order=lastmod&link=name')]", "xpath:href"],
-        ["xpath=//th/div/div/div/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Last Modified')]", "xpath:innerText"]
-      ],
-      "value": "Last Modified"
-    }, {
-      "id": "f7779fa9-4018-4afd-8280-7e51158ad8d1",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=.ep_columns_title:nth-child(2) a",
-      "targets": [
-        ["linkText=Title", "linkText"],
-        ["css=.ep_columns_title:nth-child(2) a", "css:finder"],
-        ["xpath=//a[contains(text(),'Title')]", "xpath:link"],
-        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr/th[2]/div/div/div/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/cgi/users/home?screen=Items&_buffer_offset=0&_buffer_order=title&link=name')]", "xpath:href"],
-        ["xpath=//th[2]/div/div/div/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Title')]", "xpath:innerText"]
-      ],
-      "value": "Title"
     }, {
       "id": "da5ceb7a-b4e7-4419-a705-e2090d243ba5",
       "comment": "",
@@ -22584,18 +22528,6 @@
         ["xpath=//a[contains(.,'Item Type')]", "xpath:innerText"]
       ],
       "value": "Item Type"
-    }, {
-      "id": "461d8ebf-a88e-448a-acb0-b1283230f077",
-      "comment": "",
-      "command": "verifyText",
-      "target": "xpath=//th[4]/span",
-      "targets": [
-        ["css=.ep_columns_title > span", "css:finder"],
-        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr/th[4]/span", "xpath:idRelative"],
-        ["xpath=//th[4]/span", "xpath:position"],
-        ["xpath=//span[contains(.,'Actions')]", "xpath:innerText"]
-      ],
-      "value": "Actions"
     }, {
       "id": "4dcfab3b-09bd-4f65-a548-6fc8d9488fd5",
       "comment": "",
@@ -22616,20 +22548,7 @@
       "command": "select",
       "target": "id=col",
       "targets": [],
-      "value": "label=Item Status"
-    }, {
-      "id": "692fe970-b988-4e8e-bd82-1bd4019c33ba",
-      "comment": "",
-      "command": "click",
-      "target": "xpath=//option[@value='eprint_status']",
-      "targets": [
-        ["css=option:nth-child(49)", "css:finder"],
-        ["xpath=//option[@value='eprint_status']", "xpath:attributes"],
-        ["xpath=//select[@id='col']/option[49]", "xpath:idRelative"],
-        ["xpath=//option[49]", "xpath:position"],
-        ["xpath=//option[contains(.,'Item Status')]", "xpath:innerText"]
-      ],
-      "value": ""
+      "value": "label=Revision"
     }, {
       "id": "efe8ce54-0737-48b9-be5d-313e34ce6375",
       "comment": "",
@@ -22704,14 +22623,29 @@
       ],
       "value": "Item Status"
     }, {
-      "id": "cad8c9e2-3cef-4999-80f1-11dd50ce313c",
+      "id": "a9ca5dce-1fa9-4dc8-9884-6be9ba96d8ae",
       "comment": "",
       "command": "verifyText",
-      "target": "xpath=//th[5]/span",
+      "target": "css=.ep_columns_title:nth-child(5) a",
+      "targets": [
+        ["linkText=Item Status", "linkText"],
+        ["css=.ep_columns_title:nth-child(4) a", "css:finder"],
+        ["xpath=//a[contains(text(),'Item Status')]", "xpath:link"],
+        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr/th[4]/div/div/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/cgi/users/home?screen=Items&_buffer_offset=0&_buffer_order=eprint_status&link=name')]", "xpath:href"],
+        ["xpath=//th[4]/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Item Status')]", "xpath:innerText"]
+      ],
+      "value": "Revision"
+    }, {
+      "id": "91c98fed-9919-457d-adb2-a3d846afc8b6",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.ep_columns_title > span",
       "targets": [
         ["css=.ep_columns_title > span", "css:finder"],
-        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr/th[5]/span", "xpath:idRelative"],
-        ["xpath=//th[5]/span", "xpath:position"],
+        ["xpath=//div[@id='main_content']/div/div[6]/table/tbody/tr/th[6]/span", "xpath:idRelative"],
+        ["xpath=//th[6]/span", "xpath:position"],
         ["xpath=//span[contains(.,'Actions')]", "xpath:innerText"]
       ],
       "value": "Actions"
@@ -22738,7 +22672,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["abf804c2-b400-4942-befa-fe065e98fce5", "c6574580-709c-430c-ab1c-fee106fbacc0", "f27df7ba-bea5-4403-ba3c-ce826687ccc8", "1bcf32a5-3bca-48a4-8a8b-b44274bd8cdc", "00abedfd-ad42-4822-b099-a655d73a00c8", "41c7347f-ff67-4139-8929-d3913cc49804", "be2ce120-8399-4a12-b26d-dd4afc9d189e", "d4001a19-747e-4a88-8081-24f233d53f1f", "6e552348-ae91-43d7-89b4-2df18ae34d2f", "421f504c-f379-462a-b863-a43c691b11ac", "23cfd325-bfa8-48e2-b8e2-e2154637fc42", "647417fa-3416-4c4e-baec-41dd4fe0089b", "8fc4d2b0-ea20-4820-bd26-7dbb3d75a310", "0bd95055-d9a3-41b2-9caa-ed87c1dac7f7", "14aed3a9-3f3c-4f10-88c0-d07de9e51b1c", "f05abe29-1d18-4dad-a4df-7ad664f7de92", "613c6e75-e310-408e-8056-3f13e558de73", "60730b18-1bbc-46e7-8545-9662283688e0", "99468d88-a319-4e54-90b4-76308bf85b92", "1223a4ae-3476-4e94-8af0-9e51d65fa31a", "4ed5e438-eee1-466e-a4ba-815bddac4431", "7b7cbbbc-ef97-4e3d-9428-974728b93ca5", "9a8cfd2e-f240-455a-9e4a-0d9ac0532acd", "3d4f8bcf-d882-4018-b2d0-fe140739d4e5", "aa15cff0-93f8-45d8-a80f-ccfb3b610201", "a62a757d-c46e-4d42-b42a-c9ff9bca4c0e", "9ef36076-26c8-4ae8-aae7-3ec54065a0f4", "ce47a3bd-ca4c-45b2-a42a-81418153dac2", "9154015b-77b8-4017-b305-2795c87b24e2", "7b8a104c-d593-4f02-a01d-2e59797b27a3", "deb28bdc-9eb4-4d7a-bbd3-b68cd9001305", "162961bc-cacc-42b7-b970-455f29f77cee", "40043ef8-6952-4651-97b0-1e46bf8f751c", "a01fc065-24bc-47f3-b69b-ed9f4def7ca2", "70e199a2-88be-4ba1-b9fb-12a0c89d8eab", "efe4cbd1-f399-4319-b14b-da02dbf0b12e", "7483bd79-daad-4c4f-b7ab-cf3e682ad416", "aa9f3862-34b7-4ffd-8d5e-b0df8ec6e861", "fe469dd9-d752-4723-84fd-b4edee0d8993", "38d16948-3e00-4ad9-8929-56179f0b57b3", "f5ed5cab-ada3-4dbc-a7ed-66d646003722", "b7ad2423-6ffa-4cf2-86f8-f7cdaa373f55", "b48a349c-0c03-414b-b083-6217dfd3c2c6", "88985c3c-bd5b-4851-ad11-84d1a5be2f57", "712a55eb-39cd-479a-9f36-14545eeb11cc", "c733fea8-ea82-4fad-8ed0-28eca79c98f6"]
+    "tests": ["abf804c2-b400-4942-befa-fe065e98fce5", "c6574580-709c-430c-ab1c-fee106fbacc0", "f27df7ba-bea5-4403-ba3c-ce826687ccc8", "1bcf32a5-3bca-48a4-8a8b-b44274bd8cdc", "00abedfd-ad42-4822-b099-a655d73a00c8", "41c7347f-ff67-4139-8929-d3913cc49804", "be2ce120-8399-4a12-b26d-dd4afc9d189e", "d4001a19-747e-4a88-8081-24f233d53f1f", "6e552348-ae91-43d7-89b4-2df18ae34d2f", "421f504c-f379-462a-b863-a43c691b11ac", "23cfd325-bfa8-48e2-b8e2-e2154637fc42", "647417fa-3416-4c4e-baec-41dd4fe0089b", "8fc4d2b0-ea20-4820-bd26-7dbb3d75a310", "0bd95055-d9a3-41b2-9caa-ed87c1dac7f7", "14aed3a9-3f3c-4f10-88c0-d07de9e51b1c", "f05abe29-1d18-4dad-a4df-7ad664f7de92", "613c6e75-e310-408e-8056-3f13e558de73", "60730b18-1bbc-46e7-8545-9662283688e0", "99468d88-a319-4e54-90b4-76308bf85b92", "1223a4ae-3476-4e94-8af0-9e51d65fa31a", "4ed5e438-eee1-466e-a4ba-815bddac4431", "7b7cbbbc-ef97-4e3d-9428-974728b93ca5", "9a8cfd2e-f240-455a-9e4a-0d9ac0532acd", "3d4f8bcf-d882-4018-b2d0-fe140739d4e5", "aa15cff0-93f8-45d8-a80f-ccfb3b610201", "a62a757d-c46e-4d42-b42a-c9ff9bca4c0e", "9ef36076-26c8-4ae8-aae7-3ec54065a0f4", "ce47a3bd-ca4c-45b2-a42a-81418153dac2", "9154015b-77b8-4017-b305-2795c87b24e2", "7b8a104c-d593-4f02-a01d-2e59797b27a3", "deb28bdc-9eb4-4d7a-bbd3-b68cd9001305", "162961bc-cacc-42b7-b970-455f29f77cee", "40043ef8-6952-4651-97b0-1e46bf8f751c", "a01fc065-24bc-47f3-b69b-ed9f4def7ca2", "70e199a2-88be-4ba1-b9fb-12a0c89d8eab", "efe4cbd1-f399-4319-b14b-da02dbf0b12e", "7483bd79-daad-4c4f-b7ab-cf3e682ad416", "fe469dd9-d752-4723-84fd-b4edee0d8993", "38d16948-3e00-4ad9-8929-56179f0b57b3", "f5ed5cab-ada3-4dbc-a7ed-66d646003722", "b7ad2423-6ffa-4cf2-86f8-f7cdaa373f55", "b48a349c-0c03-414b-b083-6217dfd3c2c6", "88985c3c-bd5b-4851-ad11-84d1a5be2f57", "712a55eb-39cd-479a-9f36-14545eeb11cc", "c733fea8-ea82-4fad-8ed0-28eca79c98f6"]
   }],
   "urls": ["EPRINTS_URL"],
   "plugins": []
