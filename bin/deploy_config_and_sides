@@ -34,6 +34,7 @@ cp cfg/zz_rewrite_exceptions.pl $EPRINTS_PATH/archives/$ARCHIVE/cfg/cfg.d/
 cd $EPRINTS_PATH/archives/$ARCHIVE/html/en/
 ln -s $EPRINTS_PATH/archives/$ARCHIVE/var/
 echo -n "undefined" > $EPRINTS_PATH/archives/$ARCHIVE/var/abstracts.timestamp
+echo -n "undefined" > $EPRINTS_PATH/archives/$ARCHIVE/var/citations.timestamp
 echo -n "undefined" > $EPRINTS_PATH/archives/$ARCHIVE/var/views.timestamp
 sudo /usr/bin/rm -rf /var/www/html/screenshots
 sudo /usr/bin/mkdir -p /var/www/html/screenshots
