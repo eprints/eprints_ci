@@ -4555,12 +4555,12 @@
       "id": "9b87706f-725e-4941-af5f-a0b8b510f2fb",
       "comment": "",
       "command": "click",
-      "target": "css=option:nth-child(9)",
+      "target": "xpath=//option[contains(.,'HTML Citation')]",
       "targets": [
-        ["css=option:nth-child(9)", "css:finder"],
+        ["css=option:nth-child(10)", "css:finder"],
         ["xpath=//option[@value='HTML']", "xpath:attributes"],
-        ["xpath=//select[@id='search-export-output']/option[9]", "xpath:idRelative"],
-        ["xpath=//option[9]", "xpath:position"],
+        ["xpath=//select[@id='search-export-output']/option[10]", "xpath:idRelative"],
+        ["xpath=//option[10]", "xpath:position"],
         ["xpath=//option[contains(.,'HTML Citation')]", "xpath:innerText"]
       ],
       "value": ""
@@ -6017,12 +6017,12 @@
       "id": "f0b9e6a4-c539-4c4a-9830-f07ab14f72c9",
       "comment": "",
       "command": "click",
-      "target": "css=option:nth-child(7)",
+      "target": "xpath=//option[contains(.,'Object IDs')]",
       "targets": [
-        ["css=option:nth-child(7)", "css:finder"],
+        ["css=option:nth-child(8)", "css:finder"],
         ["xpath=//option[@value='Ids']", "xpath:attributes"],
-        ["xpath=//select[@id='search-export-output']/option[7]", "xpath:idRelative"],
-        ["xpath=//option[7]", "xpath:position"],
+        ["xpath=//select[@id='search-export-output']/option[8]", "xpath:idRelative"],
+        ["xpath=//option[8]", "xpath:position"],
         ["xpath=//option[contains(.,'Object IDs')]", "xpath:innerText"]
       ],
       "value": ""
@@ -15185,10 +15185,10 @@
       ],
       "value": ""
     }, {
-      "id": "9c880866-64ff-4313-8183-64403355b353",
+      "id": "3cefafd7-2f9f-474f-8158-a9a077df6a3d",
       "comment": "",
       "command": "click",
-      "target": "css=#c15_creators_cell_4_0 img",
+      "target": "xpath=//img[@alt='down']",
       "targets": [
         ["css=#c15_creators_cell_4_0 img", "css:finder"],
         ["xpath=//img[@alt='down']", "xpath:img"],
@@ -15211,12 +15211,12 @@
       ],
       "value": "${eprint_1_creator_1_id}"
     }, {
-      "id": "b980f8ed-d741-45bc-b1b8-45018becdf8c",
+      "id": "aa351b40-7c7e-4784-b465-f2013d4ec3d9",
       "comment": "",
       "command": "click",
-      "target": "css=#c15_creators_cell_4_1 > .epjs_ajax:nth-child(2) > img",
+      "target": "xpath=//img[@alt='up']",
       "targets": [
-        ["css=#c15_creators_cell_4_1 > .epjs_ajax:nth-child(2) > img", "css:finder"],
+        ["css=#c15_creators_cell_4_1 > .epjs_ajax:nth-child(3) > img", "css:finder"],
         ["xpath=//img[@alt='up']", "xpath:img"],
         ["xpath=//div[@id='c15_creators_cell_4_1']/a[2]/img", "xpath:idRelative"],
         ["xpath=//a[2]/img", "xpath:position"]
@@ -16289,6 +16289,13 @@
         ["xpath=//a[contains(.,'Logout')]", "xpath:innerText"]
       ],
       "value": ""
+    }, {
+      "id": "cd3d04f9-8820-4f50-af83-fcac3a296ea7",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Logged out - ')]",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "f5ed5cab-ada3-4dbc-a7ed-66d646003722",
@@ -17182,6 +17189,13 @@
         ["xpath=//li[8]/a", "xpath:position"],
         ["xpath=//a[contains(.,'Logout')]", "xpath:innerText"]
       ],
+      "value": ""
+    }, {
+      "id": "cd3d04f9-8820-4f50-af83-fcac3a296ea6",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "xpath=//title[contains(.,'Logged out - ')]",
+      "targets": [],
       "value": ""
     }]
   }, {
