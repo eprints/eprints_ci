@@ -235,12 +235,13 @@
       ],
       "value": "Latest Additions"
     }, {
-      "id": "6afc30fb-8dbc-40a1-83b8-9e15f95661b7",
+      "id": "c7367bc9-14c6-433c-a0ff-52bf24d493e0",
       "comment": "",
       "command": "verifyElementPresent",
-      "target": "css=.ep_latest_tool_result:nth-child(1) .ep_citation_tile_result_docs img",
+      "target": "css=.ep_latest_tool_result_block:nth-child(1) img",
       "targets": [
-        ["css=.ep_latest_tool_result:nth-child(1) .ep_citation_tile_result_docs img", "css:finder"],
+        ["css=.ep_latest_tool_result_block:nth-child(1) img", "css:finder"],
+        ["xpath=//img[contains(@src,'https://ci-dev.eprints-hosting.org/id/eprint/101/1.haslightboxThumbnailVersion/test.pdf')]", "xpath:img"],
         ["xpath=//div[@id='fplatest']/div[2]/div/div/div/a/img", "xpath:idRelative"],
         ["xpath=//div/div/a/img", "xpath:position"]
       ],
@@ -257,15 +258,15 @@
       ],
       "value": "Recommended Research"
     }, {
-      "id": "fddd95bc-f1d8-4577-bdf4-f0f782bb66fc",
+      "id": "1f827124-9684-4177-8881-0060bf21e7d1",
       "comment": "",
       "command": "verifyElementPresent",
-      "target": "css=.ep_latest_tool_result:nth-child(1) em",
+      "target": "css=.ep_latest_tool_result_block:nth-child(1) em",
       "targets": [
-        ["css=.ep_latest_tool_result:nth-child(1) em", "css:finder"],
+        ["css=.ep_latest_tool_result_block:nth-child(1) em", "css:finder"],
         ["xpath=//div[@id='fpselected']/div[2]/div/a/em", "xpath:idRelative"],
         ["xpath=//em", "xpath:position"],
-        ["xpath=//em[contains(.,'Mating rituals of the Slender Hognosed Pitviper.')]", "xpath:innerText"]
+        ["xpath=//em[contains(.,'Test Conference Item.')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
