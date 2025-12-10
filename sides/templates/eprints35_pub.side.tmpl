@@ -241,7 +241,7 @@
       "target": "css=.ep_latest_tool_result_block:nth-child(1) img",
       "targets": [
         ["css=.ep_latest_tool_result_block:nth-child(1) img", "css:finder"],
-        ["xpath=//img[contains(@src,'https://ci-dev.eprints-hosting.org/id/eprint/101/1.haslightboxThumbnailVersion/test.pdf')]", "xpath:img"],
+        ["xpath=//img[contains(@src,'/id/eprint/101/1.haslightboxThumbnailVersion/test.pdf')]", "xpath:img"],
         ["xpath=//div[@id='fplatest']/div[2]/div/div/div/a/img", "xpath:idRelative"],
         ["xpath=//div/div/a/img", "xpath:position"]
       ],
@@ -14603,17 +14603,14 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "9c365e09-f696-4cff-9736-b7182fcfa98d",
+      "id": "d0158b5a-0893-4102-9602-8a39cbf97d8e",
       "comment": "",
       "command": "click",
-      "target": "id=c_contributions_contributions_1_contributor_name",
+      "target": "xpath=//div[@id='c_contributions']/div[2]",
       "targets": [
-        ["id=c_contributions_contributions_1_contributor_name", "id"],
-        ["name=c_contributions_contributions_1_contributor_name", "name"],
-        ["css=#c_contributions_contributions_1_contributor_name", "css:finder"],
-        ["xpath=//input[@id='c_contributions_contributions_1_contributor_name']", "xpath:attributes"],
-        ["xpath=//div[@id='c_contributions_contributions_cell_3_0']/input", "xpath:idRelative"],
-        ["xpath=//div[4]/input", "xpath:position"]
+        ["css=.m-3", "css:finder"],
+        ["xpath=//div[@id='c_contributions']/div[2]", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div[2]", "xpath:position"]
       ],
       "value": ""
     }, {
@@ -19740,6 +19737,17 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "aa1c1d08-beba-47c0-952b-7b6244b2ad9b",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='c_contributions']/div[2]",
+      "targets": [
+        ["css=.m-3", "css:finder"],
+        ["xpath=//div[@id='c_contributions']/div[2]", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
       "id": "153c879d-cc53-4467-be3a-ec514c69035c",
       "comment": "",
       "command": "click",
@@ -19768,15 +19776,15 @@
       ],
       "value": "label=Publisher"
     }, {
-      "id": "bafd2964-8230-49dd-89aa-d1f354ed8999",
+      "id": "1c5d08b1-bac0-4246-8d93-be0871512ad6",
       "comment": "",
       "command": "click",
-      "target": "css=#c_contributions_contributions_1_type > option:nth-child(12)",
+      "target": "css=#c_contributions_contributions_1_type > optgroup:nth-child(5) > option:nth-child(1)",
       "targets": [
-        ["css=#c_contributions_contributions_1_type > option:nth-child(12)", "css:finder"],
+        ["css=#c_contributions_contributions_1_type > optgroup:nth-child(5) > option:nth-child(1)", "css:finder"],
         ["xpath=//option[@value='http://www.loc.gov/loc.terms/relators/PBL']", "xpath:attributes"],
-        ["xpath=//select[@id='c_contributions_contributions_1_type']/option[12]", "xpath:idRelative"],
-        ["xpath=//option[12]", "xpath:position"],
+        ["xpath=//select[@id='c_contributions_contributions_1_type']/optgroup[4]/option", "xpath:idRelative"],
+        ["xpath=//optgroup[4]/option", "xpath:position"],
         ["xpath=//option[contains(.,'Publisher')]", "xpath:innerText"]
       ],
       "value": ""
@@ -19809,7 +19817,7 @@
       ],
       "value": "label=Organisation"
     }, {
-      "id": "6b2c88cc-cf8a-4120-8d31-6219bd06fa1f",
+      "id": "89f37bba-9d5b-4a2c-843a-f120a22e25a6",
       "comment": "",
       "command": "click",
       "target": "css=#c_contributions_contributions_1_contributor_datasetid > option:nth-child(3)",
@@ -19817,7 +19825,7 @@
         ["css=#c_contributions_contributions_1_contributor_datasetid > option:nth-child(3)", "css:finder"],
         ["xpath=//option[@value='organisation']", "xpath:attributes"],
         ["xpath=//select[@id='c_contributions_contributions_1_contributor_datasetid']/option[3]", "xpath:idRelative"],
-        ["xpath=//div[3]/select/option[3]", "xpath:position"],
+        ["xpath=//select/option[3]", "xpath:position"],
         ["xpath=//option[contains(.,'Organisation')]", "xpath:innerText"]
       ],
       "value": ""
@@ -20456,6 +20464,17 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "dc21e056-b1b0-46bd-88dd-27bab92fc891",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='c_contributions']/div[2]",
+      "targets": [
+        ["css=.m-3", "css:finder"],
+        ["xpath=//div[@id='c_contributions']/div[2]", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
       "id": "0c73fa72-d46c-4d32-8df2-7143fe1e0ebc",
       "comment": "",
       "command": "click",
@@ -20611,6 +20630,17 @@
       "command": "pause",
       "target": "1000",
       "targets": [],
+      "value": ""
+    }, {
+      "id": "bf12faf2-609d-49af-b8ff-f05bed9706c6",
+      "comment": "",
+      "command": "click",
+      "target": "xpath=//div[@id='c_contributions']/div[2]",
+      "targets": [
+        ["css=.m-3", "css:finder"],
+        ["xpath=//div[@id='c_contributions']/div[2]", "xpath:idRelative"],
+        ["xpath=//div[5]/div/div[2]", "xpath:position"]
+      ],
       "value": ""
     }, {
       "id": "eecceb7e-f94d-4107-9095-ffb6cedb0809",
