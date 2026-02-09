@@ -38,6 +38,7 @@ chmod 2775 $EPRINTS_PATH/archives/${ARCHIVE}/ssl
 cp templates/config/${ARCHIVE}/securevhost.conf $EPRINTS_PATH/archives/${ARCHIVE}/ssl/
 chmod 664 $EPRINTS_PATH/archives/${ARCHIVE}/ssl/securevhost.conf
 $EPRINTS_PATH/testdata/bin/import_test_data ${ARCHIVE}
+ln -s $EPRINTS_PATH/archives/${ARCHIVE}/var/ $EPRINTS_PATH/archives/${ARCHIVE}/html/en/
 sudo systemctl start httpd
 rm -f $EPRINTS_PATH/var/indexer.pid $EPRINTS_PATH/var/indexer.tick
 $EPRINTS_PATH/bin/indexer start --retry
