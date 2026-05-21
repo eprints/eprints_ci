@@ -3961,8 +3961,8 @@
         {
           "id": "7a3b55dc-e91e-4e10-9de3-9aeb1d26a598",
           "comment": "",
-          "command": "verifyText",
-          "target": "linkText=Article",
+          "command": "verifyElementPresent",
+          "target": "xpath=//label[contains(.,'Article')]",
           "targets": [
             [
               "linkText=Article",
@@ -3998,8 +3998,8 @@
         {
           "id": "af963644-0ac6-4f52-a4bc-1e1d5722648f",
           "comment": "",
-          "command": "verifyText",
-          "target": "linkText=Published",
+          "command": "verifyElementPresent",
+          "target": "xpath=//label[contains(.,'Published')]",
           "targets": [
             [
               "linkText=Published",
@@ -4035,8 +4035,8 @@
         {
           "id": "fbc60e55-84ad-4e14-8434-f4d8a5d8783c",
           "comment": "",
-          "command": "verifyText",
-          "target": "linkText=Elseware Publishing",
+          "command": "verifyElementPresent",
+          "target": "xpath=//label[contains(.,'Elseware Publishing')]",
           "targets": [
             [
               "linkText=Elseware Publishing",
@@ -4072,8 +4072,8 @@
         {
           "id": "cb40d019-4485-4d05-810e-15391dc3ab1f",
           "comment": "",
-          "command": "verifyText",
-          "target": "linkText=Fine Animal Breeding",
+          "command": "verifyElementPresent",
+          "target": "xpath=//label[contains(.,'Fine Animal Breeding')]",
           "targets": [
             [
               "linkText=Fine Animal Breeding",
@@ -4109,8 +4109,8 @@
         {
           "id": "0dcd0ca0-5be4-474f-85ff-6933c894bfb7",
           "comment": "",
-          "command": "verifyText",
-          "target": "linkText=2017",
+          "command": "verifyElementPresent",
+          "target": "xpath=//label[contains(.,'2017')]",
           "targets": [
             [
               "linkText=2017",
@@ -4197,7 +4197,7 @@
           "id": "123d1d64-c6a1-4ada-a215-4b09d82f902e",
           "comment": "",
           "command": "click",
-          "target": "css=div:nth-child(4) .ep_facet_entry:nth-child(1) > input",
+          "target": "xpath=//label[contains(.,'Elseware Publishing')]",
           "targets": [
             [
               "css=div:nth-child(4) .ep_facet_entry:nth-child(1) > input",
@@ -4293,7 +4293,7 @@
           "id": "4c5ad509-ab3a-45a9-b941-0b91b7aeae8d",
           "comment": "",
           "command": "click",
-          "target": "css=div:nth-child(5) .ep_facet_entry:nth-child(1) > input",
+          "target": "xpath=//label[contains(.,'Husbandry Times')]",
           "targets": [
             [
               "css=div:nth-child(5) .ep_facet_entry:nth-child(1) > input",
@@ -4362,13 +4362,27 @@
               "xpath:innerText"
             ]
           ],
-          "value": "Habits of the Yellow and Black Poison Arrow Frogs."
+          "value": "Habits of the Yellow and Black Poison Arrow Frogs.",
+          "fallbackTargets": [
+            [
+              "css=a:nth-child(2) > em",
+              "css:finder"
+            ],
+            [
+              "xpath=(//div[@id='main_content']/div/div[2]/div[2]/div[3]/div/div[2]/div[2]/a/em)[1]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//em[contains(.,'Habits of the Yellow and Black Poison Arrow Frogs.')]",
+              "xpath:innerText"
+            ]
+          ]
         },
         {
           "id": "aa0a260d-4d79-47ce-bbfe-34f14ba1ce6d",
           "comment": "",
           "command": "verifyText",
-          "target": "css=a:nth-child(2) mark",
+          "target": "css=mark:nth-child(1)",
           "targets": [
             [
               "css=a:nth-child(2) mark",
@@ -4383,7 +4397,21 @@
               "xpath:position"
             ]
           ],
-          "value": "Frogs"
+          "value": "Frogs",
+          "fallbackTargets": [
+            [
+              "css=mark:nth-child(1)",
+              "css:finder"
+            ],
+            [
+              "xpath=(//div[@id='main_content']/div/div[2]/div[2]/div[3]/div/div/div[2]/a/em/mark)[1]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//mark[contains(.,'Frogs')]",
+              "xpath:innerText"
+            ]
+          ]
         },
         {
           "id": "b771345b-e09d-4f68-a2ce-b0eaf3161af8",
@@ -4944,41 +4972,41 @@
           "value": "100 results"
         },
         {
-          "id": "9158b010-e0a9-4ed6-aac4-66a5409d9a7d",
-          "comment": "",
           "command": "verifyElementPresent",
-          "target": "linkText=Conference or Workshop Item",
+          "target": "xpath=//label[contains(.,'Conference or Workshop Item')]",
+          "value": "",
+          "insertBeforeLastCommand": false,
+          "frameLocation": "root",
+          "winHandleId": "root",
+          "id": "3c79ac2e-2ffb-4e70-b8a7-5c376ae3c0b9",
           "targets": [
-            [
-              "linkText=Conference or Workshop Item",
-              "linkText"
-            ],
             [
               "css=div:nth-child(1) > .ep_facet_entries > .ep_facet_entry:nth-child(2) > .ep_facet_label",
               "css:finder"
             ],
             [
-              "xpath=//a[contains(text(),'Conference or Workshop Item')]",
-              "xpath:link"
-            ],
-            [
-              "xpath=//div[@id='main_content']/div/div[2]/div/div/ul/li[2]/a",
+              "xpath=(//div[@id='main_content']/div/div[2]/div/div/ul/li[2]/label)[1]",
               "xpath:idRelative"
             ],
             [
-              "xpath=(//a[contains(@href, '#')])[2]",
-              "xpath:href"
-            ],
-            [
-              "xpath=//div[2]/div/div/ul/li[2]/a",
-              "xpath:position"
-            ],
-            [
-              "xpath=//a[contains(.,'Conference or Workshop Item')]",
+              "xpath=//label[contains(.,'Conference or Workshop Item')]",
               "xpath:innerText"
             ]
           ],
-          "value": ""
+          "fallbackTargets": [
+            [
+              "css=div:nth-child(1) > .ep_facet_entries > .ep_facet_entry:nth-child(2) > .ep_facet_label",
+              "css:finder"
+            ],
+            [
+              "xpath=(//div[@id='main_content']/div/div[2]/div/div/ul/li[2]/label)[1]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//label[contains(.,'Conference or Workshop Item')]",
+              "xpath:innerText"
+            ]
+          ]
         },
         {
           "id": "3e663901-f8b8-4e10-84b8-6d7696527001",
@@ -5005,7 +5033,7 @@
           "id": "36e8a721-9d0d-4151-bf0e-e530f2265c52",
           "comment": "",
           "command": "verifyElementPresent",
-          "target": "linkText=Smith and Sons",
+          "target": "xpath=//label[contains(.,'Smith and Sons')]",
           "targets": [
             [
               "linkText=Smith and Sons",
@@ -5036,7 +5064,21 @@
               "xpath:innerText"
             ]
           ],
-          "value": ""
+          "value": "",
+          "fallbackTargets": [
+            [
+              "css=div:nth-child(4) .ep_facet_entry:nth-child(3) > .ep_facet_label",
+              "css:finder"
+            ],
+            [
+              "xpath=(//div[@id='main_content']/div/div[2]/div/div[4]/ul/li[3]/label)[1]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//label[contains(.,'Smith and Sons')]",
+              "xpath:innerText"
+            ]
+          ]
         },
         {
           "id": "015424b9-4030-47b6-ab9f-fecf9548ef88",
@@ -5067,7 +5109,7 @@
           "id": "7eb540ba-bb84-4f1a-90da-72a6c04acc32",
           "comment": "",
           "command": "verifyElementPresent",
-          "target": "linkText=Husbandry Times",
+          "target": "xpath=//label[contains(.,'Husbandry Times')]",
           "targets": [
             [
               "linkText=Husbandry Times",
@@ -5098,7 +5140,21 @@
               "xpath:innerText"
             ]
           ],
-          "value": ""
+          "value": "",
+          "fallbackTargets": [
+            [
+              "css=div:nth-child(5) .ep_facet_entry:nth-child(1) > .ep_facet_label",
+              "css:finder"
+            ],
+            [
+              "xpath=(//div[@id='main_content']/div/div[2]/div/div[5]/ul/li/label)[1]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//label[contains(.,'Husbandry Times')]",
+              "xpath:innerText"
+            ]
+          ]
         },
         {
           "id": "e29ee92e-0238-4f96-8e1f-0d664ab708ec",
@@ -5129,7 +5185,7 @@
           "id": "c81a8fce-ca7f-45e2-9f28-e271bdc8ce7d",
           "comment": "",
           "command": "verifyElementPresent",
-          "target": "linkText=2018",
+          "target": "xpath=//label[contains(.,'2018')]",
           "targets": [
             [
               "linkText=2018",
@@ -5166,7 +5222,7 @@
           "id": "7eadf156-fe40-4cee-adca-1be137bb84cb",
           "comment": "",
           "command": "verifyText",
-          "target": "linkText=Show 5 more...",
+          "target": "xpath=//button[contains(.,'Show 5 more...')]",
           "targets": [
             [
               "linkText=Show 5 more...",
@@ -5197,13 +5253,27 @@
               "xpath:innerText"
             ]
           ],
-          "value": "Show 5 more..."
+          "value": "Show 5 more...",
+          "fallbackTargets": [
+            [
+              "css=div:nth-child(5) .ep_facet_show_more",
+              "css:finder"
+            ],
+            [
+              "xpath=(//div[@id='main_content']/div/div[2]/div/div[5]/ul/button)[1]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//button[contains(.,'Show 5 more...')]",
+              "xpath:innerText"
+            ]
+          ]
         },
         {
           "id": "d294cc6f-00df-443c-8c7a-6bb32b11d2e5",
           "comment": "",
           "command": "click",
-          "target": "linkText=Show 5 more...",
+          "target": "xpath=//button[contains(.,'Show 5 more...')]",
           "targets": [
             [
               "linkText=Show 5 more...",
@@ -5240,7 +5310,7 @@
           "id": "e46b8a24-8249-4cff-8ef5-771c55e4258d",
           "comment": "",
           "command": "verifyElementPresent",
-          "target": "linkText=International Journal of Evolutionary Ideas",
+          "target": "xpath=//label[contains(.,'International Journal of Evolutionary Ideas')]",
           "targets": [
             [
               "linkText=International Journal of Evolutionary Ideas",
@@ -5277,7 +5347,7 @@
           "id": "f02330a3-ad39-4704-b2c4-4dfde38e5e87",
           "comment": "",
           "command": "click",
-          "target": "css=div:nth-child(6) .ep_facet_entry:nth-child(1) > input",
+          "target": "xpath=//label[contains(.,'2018')]",
           "targets": [
             [
               "css=div:nth-child(6) .ep_facet_entry:nth-child(1) > input",
@@ -5323,7 +5393,7 @@
           "id": "fec65747-6895-4bef-894b-2f3b8cf8d543",
           "comment": "",
           "command": "click",
-          "target": "css=div:nth-child(6) .ep_facet_entry:nth-child(5) > input",
+          "target": "xpath=//label[contains(.,'2020')]",
           "targets": [
             [
               "css=div:nth-child(6) .ep_facet_entry:nth-child(4) > input",
@@ -5564,7 +5634,7 @@
           "id": "8cd6c310-6213-480b-94a6-674a5eecaefd",
           "comment": "",
           "command": "click",
-          "target": "css=div:nth-child(6) .ep_facet_entry:nth-child(1) > input",
+          "target": "xpath=//label[contains(.,'2018')]",
           "targets": [
             [
               "css=div:nth-child(6) .ep_facet_entry:nth-child(1) > input",
@@ -5610,7 +5680,7 @@
           "id": "15f9d8b6-e215-4e28-9134-5ffdc679eb72",
           "comment": "",
           "command": "click",
-          "target": "css=div:nth-child(1) > .ep_facet_entries > .ep_facet_entry:nth-child(1) > input",
+          "target": "xpath=//label[contains(.,'Conference or Workshop Item')]",
           "targets": [
             [
               "css=div:nth-child(1) > .ep_facet_entries > .ep_facet_entry:nth-child(1) > input",
@@ -11765,7 +11835,7 @@
           "id": "d8ee3f4f-509d-4c38-8337-484db11dcd29",
           "comment": "",
           "command": "click",
-          "target": "css=.form-check:nth-child(1) > .form-check-input",
+          "target": "css=.form-check:nth-child(1) > .form-check-label",
           "targets": [
             [
               "name=usertype",
@@ -11788,13 +11858,31 @@
               "xpath:position"
             ]
           ],
-          "value": ""
+          "value": "",
+          "fallbackTargets": [
+            [
+              "css=.form-check:nth-child(1) > .form-check-label",
+              "css:finder"
+            ],
+            [
+              "xpath=(//div[@id='main_content']/div/form/div[2]/div[8]/fieldset/div/div/div/label)[1]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//label[contains(.,'User')]",
+              "xpath:innerText"
+            ],
+            [
+              "xpath=(//div[@id='main_content']/div/form/div[2]/div[8]/fieldset/div/div/div/label/input)[1]",
+              "xpath:idRelative"
+            ]
+          ]
         },
         {
           "id": "9ac47cc5-5ae5-4c91-aab7-f568869054c4",
           "comment": "",
           "command": "click",
-          "target": "css=.form-check:nth-child(3) > .form-check-input",
+          "target": "css=.form-check:nth-child(3) > .form-check-label",
           "targets": [
             [
               "css=.form-check:nth-child(3) > .form-check-input",
@@ -11813,7 +11901,21 @@
               "xpath:position"
             ]
           ],
-          "value": ""
+          "value": "",
+          "fallbackTargets": [
+            [
+              "css=.form-check:nth-child(3) > .form-check-label",
+              "css:finder"
+            ],
+            [
+              "xpath=(//div[@id='main_content']/div/form/div[2]/div[8]/fieldset/div/div/div[3]/label)[1]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//label[contains(.,'Repository Administrator')]",
+              "xpath:innerText"
+            ]
+          ]
         },
         {
           "id": "188fae48-b4ca-4532-8073-9a3b8317f50a",
