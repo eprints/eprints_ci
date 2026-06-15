@@ -3762,7 +3762,7 @@
         },
         {
           "command": "verifyValue",
-          "target": "css=div:nth-child(1) > #accordionResults form > .btn",
+          "target": "name=_action_search",
           "value": "Reorder",
           "insertBeforeLastCommand": false,
           "frameLocation": "root",
@@ -4671,7 +4671,7 @@
           "id": "902c8cb0-5a5d-4bf7-91af-45ddd39c7c26",
           "comment": "",
           "command": "verifyElementPresent",
-          "target": "xpath=(//input[@name='_action_search'])[3]",
+          "target": "name=_action_search",
           "targets": [
             [
               "css=.ep_search_controls .ep_form_action_button",
@@ -5078,13 +5078,14 @@
               "xpath=//label[contains(.,'Smith and Sons')]",
               "xpath:innerText"
             ]
-          ]
+          ],
+          "isBreakpoint": false
         },
         {
           "id": "015424b9-4030-47b6-ab9f-fecf9548ef88",
           "comment": "",
           "command": "verifyText",
-          "target": "css=div:nth-child(4) .ep_facet_entry:nth-child(2) > .ep_facet_count",
+          "target": "css=div:nth-child(3) .ep_facet_entry:nth-child(3) > .ep_facet_count",
           "targets": [
             [
               "css=div:nth-child(4) .ep_facet_entry:nth-child(2) > .ep_facet_count",
@@ -5103,7 +5104,8 @@
               "xpath:innerText"
             ]
           ],
-          "value": "14"
+          "value": "14",
+          "isBreakpoint": false
         },
         {
           "id": "7eb540ba-bb84-4f1a-90da-72a6c04acc32",
@@ -5154,13 +5156,14 @@
               "xpath=//label[contains(.,'Husbandry Times')]",
               "xpath:innerText"
             ]
-          ]
+          ],
+          "isBreakpoint": false
         },
         {
           "id": "e29ee92e-0238-4f96-8e1f-0d664ab708ec",
           "comment": "",
           "command": "verifyText",
-          "target": "css=div:nth-child(6) .ep_facet_entry:nth-child(1) > .ep_facet_count",
+          "target": "css=div:nth-child(5) .ep_facet_entry:nth-child(1) > .ep_facet_count",
           "targets": [
             [
               "css=div:nth-child(6) .ep_facet_entry:nth-child(1) > .ep_facet_count",
@@ -5512,13 +5515,14 @@
               "xpath:innerText"
             ]
           ],
-          "value": ""
+          "value": "",
+          "isBreakpoint": false
         },
         {
           "id": "f16f606d-2c5c-4d7a-a55c-09d938977a5b",
           "comment": "",
           "command": "click",
-          "target": "css=div:nth-child(1) > #accordionResults form > .btn",
+          "target": "name=_action_search",
           "targets": [
             [
               "css=div:nth-child(1) > #accordionResults form > .btn",
@@ -5537,7 +5541,26 @@
               "xpath:position"
             ]
           ],
-          "value": ""
+          "value": "",
+          "isBreakpoint": false,
+          "fallbackTargets": [
+            [
+              "name=_action_search",
+              "name"
+            ],
+            [
+              "css=div:nth-child(1) > #accordionResults .btn:nth-child(3)",
+              "css:finder"
+            ],
+            [
+              "xpath=(//input[@name='_action_search'])[1]",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=(//div[@id='collapseResults']/div/div/div[2]/form/input)[1]",
+              "xpath:idRelative"
+            ]
+          ]
         },
         {
           "id": "8962f44f-5867-4bab-845e-ae4d57afbfb9",
@@ -5581,29 +5604,31 @@
           "value": "label=by title"
         },
         {
-          "id": "bddbcc01-b3e8-4853-9b81-fc56c68372db",
-          "comment": "",
           "command": "click",
-          "target": "css=div:nth-child(1) > #accordionResults form > .btn",
+          "target": "name=_action_search",
+          "value": "",
+          "insertBeforeLastCommand": false,
+          "frameLocation": "root",
+          "winHandleId": "root",
+          "id": "bf742383-0149-4bc2-8818-79a8a49ce8f8",
           "targets": [
             [
-              "css=div:nth-child(1) > #accordionResults form > .btn",
+              "name=_action_search",
+              "name"
+            ],
+            [
+              "css=div:nth-child(1) > #accordionResults .btn:nth-child(3)",
               "css:finder"
             ],
             [
-              "xpath=(//input[@name='_action_search'])[4]",
+              "xpath=(//input[@name='_action_search'])[1]",
               "xpath:attributes"
             ],
             [
-              "xpath=//div[@id='collapseResults']/div/div/div[2]/form/input",
+              "xpath=(//div[@id='collapseResults']/div/div/div[2]/form/input)[1]",
               "xpath:idRelative"
-            ],
-            [
-              "xpath=//div/div/div[2]/form/input",
-              "xpath:position"
             ]
-          ],
-          "value": ""
+          ]
         },
         {
           "id": "3e2bf37e-7e29-4f18-8ee9-56186ffc9552",
@@ -13343,13 +13368,16 @@
           "value": "label=Time (oldest first)"
         },
         {
-          "id": "ea19a66f-1e58-469d-aadd-7cc97e35a77c",
-          "comment": "",
           "command": "click",
-          "target": "css=div:nth-child(2) > .border form > .btn",
+          "target": "css=.ep_search_reorder:nth-child(4) .btn-primary",
+          "value": "",
+          "insertBeforeLastCommand": false,
+          "frameLocation": "root",
+          "winHandleId": "root",
+          "id": "6584782d-3e63-4d4c-a33d-350ccbb52b87",
           "targets": [
             [
-              "css=div:nth-child(2) > .border form > .btn",
+              "css=.ep_search_reorder:nth-child(4) .btn-primary",
               "css:finder"
             ],
             [
@@ -13357,15 +13385,10 @@
               "xpath:attributes"
             ],
             [
-              "xpath=//div[@id='main_content']/div/div[2]/div/div[3]/form/input",
+              "xpath=(//div[@id='main_content']/div/div[2]/div/div[3]/form/input)[1]",
               "xpath:idRelative"
-            ],
-            [
-              "xpath=//div[3]/form/input",
-              "xpath:position"
             ]
-          ],
-          "value": ""
+          ]
         },
         {
           "id": "d2aadee4-a0be-4a19-acff-e4821ebeecb5",
@@ -13386,7 +13409,8 @@
               "xpath:position"
             ]
           ],
-          "value": "African Elephants in Τάρταρος (eprint 1 r1)"
+          "value": "African Elephants in Τάρταρος (eprint 1 r1)",
+          "isBreakpoint": false
         },
         {
           "id": "922e5caf-6631-4e71-90be-220025c29ceb",
@@ -13678,7 +13702,7 @@
           "id": "8a148fea-d55f-45bb-9473-ef9e92f56be9",
           "comment": "",
           "command": "verifyText",
-          "target": "css=.accordion-body label",
+          "target": "css=label",
           "targets": [
             [
               "css=.accordion-body label",
@@ -13697,7 +13721,8 @@
               "xpath:innerText"
             ]
           ],
-          "value": "Export 1 results as"
+          "value": "Export 1 results as ",
+          "isBreakpoint": false
         },
         {
           "id": "44f26c90-6f67-4dc9-b7f5-58bd7da0d280",
