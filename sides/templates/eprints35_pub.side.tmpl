@@ -126,7 +126,7 @@
           "id": "d81bfb98-c660-4825-95f1-1c0b93cc8ee6",
           "comment": "",
           "command": "verifyElementPresent",
-          "target": "linkText=School of Electronics and Computer Science",
+          "target": "linkText=University of Southampton",
           "targets": [
             [
               "linkText=School of Electronics and Computer Science",
@@ -1952,43 +1952,6 @@
           "value": ""
         },
         {
-          "id": "cb9c15aa-4035-47c8-8832-cb064e05a081",
-          "comment": "",
-          "command": "verifyElementPresent",
-          "target": "linkText=www.eprints.org",
-          "targets": [
-            [
-              "linkText=www.eprints.org",
-              "linkText"
-            ],
-            [
-              "css=p:nth-child(5) > a",
-              "css:finder"
-            ],
-            [
-              "xpath=//a[contains(text(),'www.eprints.org')]",
-              "xpath:link"
-            ],
-            [
-              "xpath=//div[@id='main_content']/div/p[3]/a",
-              "xpath:idRelative"
-            ],
-            [
-              "xpath=//a[contains(@href, 'https://www.eprints.org/')]",
-              "xpath:href"
-            ],
-            [
-              "xpath=//p[3]/a",
-              "xpath:position"
-            ],
-            [
-              "xpath=//a[contains(.,'www.eprints.org')]",
-              "xpath:innerText"
-            ]
-          ],
-          "value": ""
-        },
-        {
           "id": "f6925a69-8552-4d2f-a11c-509108c0102c",
           "comment": "",
           "command": "verifyElementPresent",
@@ -2026,10 +1989,53 @@
           "value": ""
         },
         {
+          "id": "cb9c15aa-4035-47c8-8832-cb064e05a081",
+          "comment": "",
+          "command": "verifyElementPresent",
+          "target": "linkText=www.eprints.org",
+          "targets": [
+            [
+              "linkText=www.eprints.org",
+              "linkText"
+            ],
+            [
+              "css=p:nth-child(5) > a",
+              "css:finder"
+            ],
+            [
+              "xpath=//a[contains(text(),'www.eprints.org')]",
+              "xpath:link"
+            ],
+            [
+              "xpath=//div[@id='main_content']/div/p[3]/a",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//a[contains(@href, 'https://www.eprints.org/')]",
+              "xpath:href"
+            ],
+            [
+              "xpath=//p[3]/a",
+              "xpath:position"
+            ],
+            [
+              "xpath=//a[contains(.,'www.eprints.org')]",
+              "xpath:innerText"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "command": "verifyElementPresent",
+          "target": "linkText=EPrints on GitHub",
+          "value": "",
+          "id": "8df00298-1fbc-4ff6-91f2-2e76e22f3aa4"
+        },
+        {
           "id": "de59e7ee-9c0d-4712-8e01-9b214ea6ca9d",
           "comment": "",
           "command": "verifyElementPresent",
-          "target": "linkText=MySQL",
+          "target": "linkText=EPrints wiki's manual",
           "targets": [
             [
               "linkText=MySQL",
@@ -2066,7 +2072,7 @@
           "id": "7aba259c-538c-4d24-a87f-3c659c42d70c",
           "comment": "",
           "command": "verifyElementPresent",
-          "target": "linkText=Open Archives Initiative Protocol for Metadata Harvesting",
+          "target": "linkText=Extended List of Credits",
           "targets": [
             [
               "linkText=Open Archives Initiative Protocol for Metadata Harvesting",
@@ -2100,12 +2106,225 @@
           "value": ""
         },
         {
-          "id": "a359ffcf-072b-44d6-b8df-36b3d0811c3f",
-          "comment": "",
+          "command": "click",
+          "target": "linkText=Extended List of Credits",
+          "value": "",
+          "insertBeforeLastCommand": false,
+          "frameLocation": "root",
+          "winHandleId": "root",
+          "id": "d5cf315b-cc50-49ea-8e35-e4f80cd54a76",
+          "targets": [
+            [
+              "linkText=Extended List of Credits",
+              "linkText"
+            ],
+            [
+              "css=p:nth-child(17) > a",
+              "css:finder"
+            ],
+            [
+              "xpath=(//a[contains(text(),'Extended List of Credits')])[1]",
+              "xpath:link"
+            ],
+            [
+              "xpath=(//div[@id='main_content']/div/p[6]/a)[1]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=(//a[contains(@href, 'credits.html')])[1]",
+              "xpath:href"
+            ],
+            [
+              "xpath=//a[contains(.,'Extended List of Credits')]",
+              "xpath:innerText"
+            ]
+          ]
+        },
+        {
           "command": "verifyElementPresent",
-          "target": "linkText=The GNU Project",
-          "targets": [],
-          "value": ""
+          "target": "id=software-architects",
+          "value": "",
+          "insertBeforeLastCommand": false,
+          "frameLocation": "root",
+          "winHandleId": "root",
+          "id": "ce4ed0e6-0f7f-4166-ad23-f6cf82efbc86",
+          "targets": [
+            [
+              "id=software-architects",
+              "id"
+            ],
+            [
+              "css=#software-architects",
+              "css:finder"
+            ],
+            [
+              "xpath=(//h2[@id='software-architects'])[1]",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=(//div[@id='main_content']/div/h2)[1]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//h2[contains(.,'Software Architects')]",
+              "xpath:innerText"
+            ]
+          ]
+        },
+        {
+          "command": "verifyElementPresent",
+          "target": "id=developers",
+          "value": "",
+          "insertBeforeLastCommand": false,
+          "frameLocation": "root",
+          "winHandleId": "root",
+          "targets": [
+            [
+              "id=software-architects",
+              "id"
+            ],
+            [
+              "css=#software-architects",
+              "css:finder"
+            ],
+            [
+              "xpath=(//h2[@id='software-architects'])[1]",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=(//div[@id='main_content']/div/h2)[1]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//h2[contains(.,'Software Architects')]",
+              "xpath:innerText"
+            ]
+          ],
+          "id": "51cfc39d-cf21-435d-8dd5-32b00efea6be"
+        },
+        {
+          "command": "verifyElementPresent",
+          "target": "id=contributors",
+          "value": "",
+          "insertBeforeLastCommand": false,
+          "frameLocation": "root",
+          "winHandleId": "root",
+          "targets": [
+            [
+              "id=software-architects",
+              "id"
+            ],
+            [
+              "css=#software-architects",
+              "css:finder"
+            ],
+            [
+              "xpath=(//h2[@id='software-architects'])[1]",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=(//div[@id='main_content']/div/h2)[1]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//h2[contains(.,'Software Architects')]",
+              "xpath:innerText"
+            ]
+          ],
+          "id": "dddca400-bade-4738-a5bc-79299926fdfe"
+        },
+        {
+          "command": "verifyElementPresent",
+          "target": "id=project-management",
+          "value": "",
+          "insertBeforeLastCommand": false,
+          "frameLocation": "root",
+          "winHandleId": "root",
+          "targets": [
+            [
+              "id=software-architects",
+              "id"
+            ],
+            [
+              "css=#software-architects",
+              "css:finder"
+            ],
+            [
+              "xpath=(//h2[@id='software-architects'])[1]",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=(//div[@id='main_content']/div/h2)[1]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//h2[contains(.,'Software Architects')]",
+              "xpath:innerText"
+            ]
+          ],
+          "id": "d3602b51-ceb4-4608-a8a7-f8e1cdc7392e"
+        },
+        {
+          "command": "verifyElementPresent",
+          "target": "id=user-experience-consultant",
+          "value": "",
+          "insertBeforeLastCommand": false,
+          "frameLocation": "root",
+          "winHandleId": "root",
+          "targets": [
+            [
+              "id=software-architects",
+              "id"
+            ],
+            [
+              "css=#software-architects",
+              "css:finder"
+            ],
+            [
+              "xpath=(//h2[@id='software-architects'])[1]",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=(//div[@id='main_content']/div/h2)[1]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//h2[contains(.,'Software Architects')]",
+              "xpath:innerText"
+            ]
+          ],
+          "id": "d6fd599d-a2c2-4b7f-827c-b094cb3485cd"
+        },
+        {
+          "command": "verifyElementPresent",
+          "target": "id=visonary-and-software-specifications",
+          "value": "",
+          "insertBeforeLastCommand": false,
+          "frameLocation": "root",
+          "winHandleId": "root",
+          "id": "bdcc61ea-b862-4ebd-bb52-b3c673a301e0",
+          "targets": [
+            [
+              "id=visonary-and-software-specifications",
+              "id"
+            ],
+            [
+              "css=#visonary-and-software-specifications",
+              "css:finder"
+            ],
+            [
+              "xpath=(//h2[@id='visonary-and-software-specifications'])[1]",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=(//div[@id='main_content']/div/h2[6])[1]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//h2[contains(.,'Visionary and Software Specifications')]",
+              "xpath:innerText"
+            ]
+          ]
         }
       ]
     },
