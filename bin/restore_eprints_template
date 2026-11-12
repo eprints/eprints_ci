@@ -47,6 +47,7 @@ rm -rf $EPRINTS_PATH/cfg/*
 chmod g+w $EPRINTS_PATH/cfg
 $EPRINTS_PATH/bin/generate_apacheconf --system --replace
 $EPRINTS_PATH/bin/epadmin update $ARCHIVE
+$EPRINTS_PATH/bin/epadmin redo_thumbnails $ARCHIVE
 sudo systemctl start httpd
 rm -f $EPRINTS_PATH/var/indexer.pid $EPRINTS_PATH/var/indexer.tick
 rm -f $EPRINTS_PATH/archives/$ARCHIVE/html/en/var
